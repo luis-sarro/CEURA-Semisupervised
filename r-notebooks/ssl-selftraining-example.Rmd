@@ -1,0 +1,66 @@
+---
+title: "Package SSL, sslSelfTrain"
+output: html_notebook
+---
+# Package ‘SSL’
+
+Type Package<br>
+Title Semi-Supervised Learning<br>
+Version 0.1<br>
+Date 2016-05-01<br>
+Author Junxiang Wang<br>
+Maintainer Junxiang Wang <xianggebenben@163.com><br>
+Description Semi-supervised learning has attracted the attention of machine learning community because of its high accuracy with less annotating effort compared with supervised learning.The question that semi-supervised learning wants to address is: given a relatively small labeled dataset and a large unlabeled dataset, how to design classification algorithms learning from both ? This package is a collection of some classical semi-supervised learning algorithms in the last few decades.<br>
+License GPL (>= 3)<br>
+LazyData TRUE<br>
+RoxygenNote 5.0.1<br>
+Depends R (>= 3.2)<br>
+Imports NetPreProc (>= 1.1), Rcpp (>= 0.12.2), caret (>= 6.0-52),
+proxy (>= 0.4-15), xgboost (>= 0.4), klaR (>= 0.6-12), e1071
+(>= 1.6-7), stats (>= 3.2)<br>
+LinkingTo Rcpp<br>
+NeedsCompilation yes<br>
+Repository CRAN<br>
+Date/Publication 2016-05-14 23:12:09<br>
+
+## Algoritmos usados en este notebook
+1. sslSelfTrain
+```{r}
+library(SSL)
+library(caret)
+```
+```{r}
+# Función matrix de confusión en porcentajes
+conf_matrix_statistics <- function(yl, yu, ytrue, known.label) {
+    ytrue_l<-ytrue[known.label]
+    ytrue_u<-ytrue[-known.label]
+
+    xtab <- table(c(yl, yu), c(ytrue_l, ytrue_u))
+    results <- confusionMatrix(xtab)
+    print(prop.table(as.matrix(results), margin = 1))
+    print(as.matrix(results, what = "overall"))
+    print(as.matrix(results, what = "classes"))
+    return(results)
+}
+```
+```{r}
+# Carga de datos
+data(iris)
+xl<-iris[,1:4]
+ytrue<-as.numeric(iris[,5])
+#Suppose we know the first "num_labelled" observations of each class
+#and we want to predict the remaining with co-training
+# 1 setosa, 2 versicolor, 3 virginica
+num_labelled = 20
+yl<-rep(1:3,each=num_labelled)
+known.label <-c(1:num_labelled,51:(50+num_labelled),101:(100+num_labelled))
+xu<-xl[-known.label,]
+xl<-xl[known.label,]
+```
+```{r}
+# Self-Training
+yu<-sslSelfTrain(xl,yl,xu,nrounds = 100,n=30)
+
+stats <- conf_matrix_statistics(yl, yu, ytrue, known.label)
+```
+

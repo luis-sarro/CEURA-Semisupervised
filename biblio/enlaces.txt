@@ -1,0 +1,151 @@
+Self emsembling trains neural networks on partially labelled data
+https://github.com/RobRomijnders/ssl
+
+https://blog.albert2005.co.jp/2017/03/08/semi-supervised-learning/
+
+https://www.datacamp.com/community/blog/jupyter-notebook-r
+
+http://pages.cs.wisc.edu/~jerryzhu/ssl/software.html
+Enumeración de software para SSL
+
+Python: Deeper Insights into Machine Learning
+http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/python/9781787128576
+
+http://sci2s.ugr.es/ssl
+Lista de muchos tipos de UGR (self-labeled)
+
+http://videolectures.net/Top/Computer_Science/Machine_Learning/Semi-supervised_Learning/
+
+Scikit-learn : Machine Learning Simplified
+http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/machine-learning/9781788833479
+ejemplo de bags of word (features) con SIFT/SURF
+
+http://videolectures.net/mlas06_mitchell_sla/ 
+
+http://videolectures.net/mlss09us_zhu_ssl/
+
+http://slideplayer.com/slide/5032587/
+Rong Jin
+
+Representación, notación y suposiciones en SSL
+Técnicas de SSL
+    Modelos generativos
+    Self-training
+    Co-training and Multiview Algorithms
+    Graph-Based Algorithms and Manifold Regularization 
+    S3VMs and Entropy Regularization
+
+   ( Online SSL
+    Multimanifold SSL )
+
+        Inputs and outputs
+        How does it work?
+        Advantages and limitations
+        Examples
+
+https://machinelearningmastery.com/
+
+Semi-Supervised Learning Literature Survey, Xiaojin Zhu
+http://pages.cs.wisc.edu/~jerryzhu/pub/ssl_survey.pdf
+
+Semi-Supervised Learning, Xiaojin Zhu
+http://pages.cs.wisc.edu/~jerryzhu/pub/SSL_EoML.pdf
+
+Python: Real World Machine Learning
+http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/python/9781787123212
+
+Semi-Supervised and Unsupervised Machine Learning: Novel Strategies, Amparo Albalate; Wolfgang Minker. John Wiley & Sons.
+http://proquest.safaribooksonline.com.ezproxy.uned.es/book/databases/9781118586136
+
+Mastering Java Machine Learning, Uday Kamath; Krishna Choppella. Packt Publishing.
+http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/machine-learning/9781785880513
+
+Advanced Machine Learning with Python, John Hearty. Packt Publishing.
+http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/python/9781784398637
+https://github.com/tmadl/semisup-learn
+
+scikit-learn Cookbook - Second Edition, Julian Avila. Packt Publishing
+http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/machine-learning/9781787286382
+
+https://datawhatnow.com/pseudo-labeling-semi-supervised-learning/
+
+RSSL: Semi-supervised Learning in R
+https://arxiv.org/pdf/1612.07993.pdf
+
+SKlearn - SSL
+https://github.com/jjrob13/sklearn_cotraining
+
+Machine Learning: End-to-End guide for Java developers (KEEL)
+http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/machine-learning/9781788622219
+4. Semi-Supervised and Active Learning
+    Semi-supervised learning
+        Representation, notation, and assumptions
+        Semi-supervised learning techniques
+            Self-training SSL
+                Inputs and outputs
+                How does it work?
+                Advantages and limitations
+            Co-training SSL or multi-view SSL
+                Inputs and outputs
+                How does it work?
+                Advantages and limitations
+            Cluster and label SSL
+                Inputs and outputs
+                How does it work?
+                Advantages and limitations
+            Transductive graph label propagation
+                Inputs and outputs
+                How does it work?
+                Advantages and limitations
+            Transductive SVM (TSVM)
+                Inputs and outputs
+                How does it work?
+                Advantages and limitations
+        Case study in semi-supervised learning
+            Tools and software
+            Business problem
+            Machine learning mapping
+            Data collection
+                Data quality analysis
+            Data sampling and transformation
+            Datasets and analysis
+                Feature analysis results
+            Experiments and results
+                Analysis of semi-supervised learning
+
+    Active learning
+        Representation and notation
+        Active learning scenarios
+        Active learning approaches
+            Uncertainty sampling
+                How does it work?
+                    Least confident sampling
+                    Smallest margin sampling
+                    Label entropy sampling
+                Advantages and limitations
+            Version space sampling
+                Query by disagreement (QBD)
+                    How does it work?
+                Query by Committee (QBC)
+                    How does it work?
+                Advantages and limitations
+            Data distribution sampling
+                How does it work?
+                    Expected model change
+                    Expected error reduction
+                        Variance reduction
+                        Density weighted methods
+                Advantages and limitations
+        Case study in active learning
+            Tools and software
+            Business problem
+            Machine learning mapping
+            Data Collection
+            Data sampling and transformation
+            Feature analysis and dimensionality reduction
+            Models, results, and evaluation
+                Pool-based scenarios
+                Stream-based scenarios
+            Analysis of active learning results
+        Summary
+        References

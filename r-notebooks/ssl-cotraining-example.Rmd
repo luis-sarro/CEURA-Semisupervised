@@ -1,0 +1,43 @@
+---
+title: "Package SSL, sslCoTrain"
+output: html_notebook
+---
+```{r}
+library(SSL)
+library(caret)
+```
+```{r}
+# Función matrix de confusión en porcentajes
+conf_matrix_statistics <- function(yl, yu, ytrue, known.label) {
+    ytrue_l<-ytrue[known.label]
+    ytrue_u<-ytrue[-known.label]
+
+    xtab <- table(c(yl, yu), c(ytrue_l, ytrue_u))
+    results <- confusionMatrix(xtab)
+    print(prop.table(as.matrix(results), margin = 1))
+    print(as.matrix(results, what = "overall"))
+    print(as.matrix(results, what = "classes"))
+    return(results)
+}
+```
+```{r}
+# Carga de datos
+data(iris)
+xl<-iris[,1:4]
+ytrue<-as.numeric(iris[,5])
+#Suppose we know the first "num_labelled" observations of each class
+#and we want to predict the remaining with co-training
+# 1 setosa, 2 versicolor, 3 virginica
+num_labelled = 20
+yl<-rep(1:3,each=num_labelled)
+known.label <-c(1:num_labelled,51:(50+num_labelled),101:(100+num_labelled))
+xu<-xl[-known.label,]
+xl<-xl[known.label,]
+```
+```{r}
+# Co-training
+yu<-sslCoTrain(xl,yl,xu,method1="xgb",nrounds1 = 100,method2="xgb",nrounds2 = 100,n=60)
+
+stats <- conf_matrix_statistics(yl, yu, ytrue, known.label)
+```
+

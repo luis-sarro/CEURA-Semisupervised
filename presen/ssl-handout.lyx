@@ -1,0 +1,8444 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usepackage[spanish]{babel}
+\uselanguage{spanish}
+\languagepath{spanish}
+\deftranslation[to=spanish]{Theorem}{Teorema}
+\deftranslation[to=spanish]{theorem}{teorema}
+\deftranslation[to=spanish]{Definition}{Definición}
+\deftranslation[to=spanish]{definition}{definición}
+\deftranslation[to=spanish]{Definitions}{Definiciones}
+\deftranslation[to=spanish]{definitions}{definiciones}
+\deftranslation[to=spanish]{Example}{Ejemplo}
+\deftranslation[to=spanish]{example}{ejemplo}
+\deftranslation[to=spanish]{Examples}{Ejemplos}
+\deftranslation[to=spanish]{examples}{ejemplos}
+\deftranslation[to=spanish]{Fact}{Hecho}
+\deftranslation[to=spanish]{fact}{hecho}
+\deftranslation[to=spanish]{Corollary}{Corolario}
+\deftranslation[to=spanish]{corollary}{corolario}
+\deftranslation[to=spanish]{Lemma}{Lema}
+\deftranslation[to=spanish]{lemma}{lema}
+\usetheme{MasterCeura}	% tree outline on top, plainish white
+\setbeamercovered{transparent}
+\usepackage{multimedia}
+\end_preamble
+\options handout
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package none
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "helvet" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+title[SSL]{Aprendizaje semi-supervisado (SSL)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+subtitle{Teoría y casos prácticos de SSL}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author[J.
+ M.
+ Cuadra]{José Manuel Cuadra Troncoso}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+date{}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+date{
+\backslash
+today}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+institute{
+\backslash
+url{jmcuadra@dia.uned.es}
+\backslash
+
+\backslash
+
+\backslash
+url{http://www.ia.uned.es/personal/jmcuadra/}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}[plain,t]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+titlepage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The following causes the table of contents to be shown at the beginning
+ of every subsection.
+ Delete this, if you do not want it.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+frame<beamer> eliminado del primer 
+\backslash
+AtBeginSection para handout
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[{
+\backslash
+tableofcontents[currentsection]}]{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Índice}   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection,hideothersubsections] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSubsection[{
+\backslash
+tableofcontents[currentsection]}]{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Índice}   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection,currentsubsection,sectionstyle=show/shaded,
+ subsectionstyle=show/shaded/hide] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Índice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{tocdepth}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Introducción a SSL
+\end_layout
+
+\begin_layout Subsection
+Entre el aprendizaje no supervisado y el supervisado
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Aprendizaje no supervisado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+El objetivo del aprendizaje no supervisado es encontrar una estructura interesan
+te en un conjunto de ejemplos 
+\begin_inset Formula $X=\{\mathbf{x}_{1,}\,\mathbf{x}_{2,}\,....,\,\mathbf{x}_{n}\}$
+\end_inset
+
+ extraídas de una población 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Más precisamente encontrar una f.d.p que pueda haber generado 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Este objetivo se extiende a estimación de cuantiles, clustering, detección
+ de outliers y reducción de dimensionalidad.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Aprendizaje supervisado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+El objetivo del aprendizaje supervisado es aprender un mapeo 
+\begin_inset Formula $f$
+\end_inset
+
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ en 
+\begin_inset Formula $Y=\{y_{1},\,y_{2},\,...,\,y_{n}\}$
+\end_inset
+
+, donde 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ son las etiquetas asociadas a los ejemplos 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+ extraídas de una población 
+\begin_inset Formula $\mathcal{Y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Los pares 
+\begin_inset Formula $(\mathbf{x}_{i},\,y_{i})$
+\end_inset
+
+ se supone que se seleccionan de manera i.i.d.
+ en la población 
+\begin_inset Formula $\mathcal{X}\times\mathcal{Y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Este objetivo se extiende a regresión, detección de outliers y de novedad.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Datos etiquetados
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pros y contras de los datos etiquetados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Con relativamente pocos datos se puede entrenar.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+2-3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Contras
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Las etiquetas suelen necesitar expertos anotadores, llevan tiempo y dinero.
+\end_layout
+
+\begin_layout Itemize
+Las etiquetas pueden necesitar dispositivos especializados.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Los datos no etiquetados suelen presentar características opuestas.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ejemplo de obtención de etiquetas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Anotación de imágenes médicas
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/slices.svg
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Uso de juegos para etiquetado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Juegos de computación basados en humanos o juegos con un propósito (GWAP).
+\end_layout
+
+\begin_layout Itemize
+Para abordar problemas que las computadoras aún no pueden:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Etiquetado de imágenes.
+\end_layout
+
+\begin_layout Itemize
+Anotación de obras de arte, literatura...
+\end_layout
+
+\begin_layout Itemize
+Genética.
+\end_layout
+
+\begin_layout Itemize
+Web semántica ...
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Human-based_computation_game
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Aprendizaje semi-supervisado y transductivo
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Aprendizaje semi-supervisado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Clasificación semi-supervisada:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Usar 
+\begin_inset Formula $l$
+\end_inset
+
+ datos etiquetados 
+\begin_inset Formula $\left\{ (\mathbf{x}_{i},\,y_{i})\right\} _{i=1}^{l}$
+\end_inset
+
+ y 
+\begin_inset Formula $u$
+\end_inset
+
+ no etiquetados 
+\begin_inset Formula $\left\{ \mathbf{x}_{j}\right\} _{j=l+1}^{l+u}$
+\end_inset
+
+ .
+ Normalmente 
+\begin_inset Formula $u\gg l$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Objetivo: obtener un mejor clasificador que con datos etiquetados solo.
+ Extensión de SL.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Hay métodos generativos (probabilísticos) y discriminativos (no probabilísticos).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Clustering con restricciones:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Usar 
+\begin_inset Formula $n$
+\end_inset
+
+ datos no etiquetados 
+\begin_inset Formula $\left\{ \mathbf{x}_{j}\right\} _{j=l}^{n}$
+\end_inset
+
+ y restricciones p.
+ ej.
+ dos puntos están en el mismo cluster (must-links) o no (cannot-links).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Objetivo: obtener un mejor agrupamiento que con datos no etiquetados solo.
+ Extensión de USL.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+SSL vs aprendizaje transductivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+SSL inductivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+Dados 
+\begin_inset Formula $\left\{ (\mathbf{x}_{i},\,y_{i})\right\} _{i=1}^{l}$
+\end_inset
+
+ y 
+\begin_inset Formula $\left\{ \mathbf{x}_{j}\right\} _{j=l+1}^{l+u}$
+\end_inset
+
+ aprender 
+\begin_inset Formula $f\,:\,\mathcal{X}\,\longrightarrow\,\mathcal{Y}$
+\end_inset
+
+ , se espera que 
+\begin_inset Formula $f$
+\end_inset
+
+ realice buenas 
+\color red
+predicciones sobre datos futuros
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Aprendizaje transductivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+Dados 
+\begin_inset Formula $\left\{ (\mathbf{x}_{i},\,y_{i})\right\} _{i=1}^{l}$
+\end_inset
+
+ y 
+\begin_inset Formula $\left\{ \mathbf{x}_{j}\right\} _{j=l+1}^{l+u}$
+\end_inset
+
+ aprender 
+\begin_inset Formula $f\,:\,X^{l+u}\,\longrightarrow\,Y^{l+u}$
+\end_inset
+
+ , se espera que 
+\begin_inset Formula $f$
+\end_inset
+
+ realice buenas 
+\color red
+predicciones solo en la muestra de entrenamiento
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+¿Cuándo puede funcionar el SSL?
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+¿Cuándo puede funcionar el SSL?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+¿Tiene sentido el SSL?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Precisando: en comparación con un algoritmo supervisado ¿se puede esperar
+ mayor precisión empleando datos sin etiquetar?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Sí, pero la distribución de ejemplo debe ser relevante para el problema
+ de clasificación planteado.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+El conocimiento sobre 
+\begin_inset Formula $p(\mathbf{x})$
+\end_inset
+
+ que aportan los datos no etiquetados debe tener información útil sobre
+ 
+\begin_inset Formula $p(y|\mathbf{x})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Para esto deben cumplirse ciertas hipótesis: suavidad/continuidad, agrupamiento
+ y de variedad(manifold).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Hipótesis de suavidad/continuidad semi-supervisada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Si dos puntos 
+\begin_inset Formula $\mathbf{x}_{1},\,\mathbf{x}_{2}$
+\end_inset
+
+ en una región de alta densidad están cerca, sus etiquetas 
+\begin_inset Formula $y_{1},\,y_{2}$
+\end_inset
+
+ deberían ser iguales.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+La frontera de decisión en región de baja densidad.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Generalizar a un posible conjunto infinito de casos a partir de un conjunto
+ finito de entrenamiento.
+\end_layout
+
+\begin_layout Column
+0.5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<1>[scale=0.5]{figs/smooth-asumpt1.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<2->[scale=0.5]{figs/smooth-asumpt1-2.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Hipótesis de agrupamiento
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Si dos puntos 
+\begin_inset Formula $\mathbf{x}_{1},\,\mathbf{x}_{2}$
+\end_inset
+
+ pertenecen al mismo cluster, sus etiquetas 
+\begin_inset Formula $y_{1},\,y_{2}$
+\end_inset
+
+ deberían ser iguales.
+ Aunque datos con la misma etiqueta pueden pertenecer a distintos clusters.
+ Caso particular de la hipótesis de suavidad.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Los datos no etiquetados pueden ayudar a precisar las fronteras de los clusters.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<2->[scale=0.35]{figs/cluster-asumpt1-5.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3->[scale=0.35]{figs/cluster-asumpt-10.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<4->[scale=0.35]{figs/cluster-asumpt-15.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<5->[scale=0.35]{figs/cluster-asumpt-20.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Hipótesis de variedad (manifold)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Una variedad es un conjunto localmente homeomórfico a un espacio euclídeo.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+1D: recta, círculo, pero no un 8.
+ En 2D: plano, esfera, toro.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Los datos están en una variedad de una dimensión mucho más pequeña que la
+ del espacio de entrada (evitar la maldición de la dimensionalidad).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+La voz humana se controla con 4 cuerdas vocales, no es necesario modelar
+ el espacio de todas las señales acústicas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+La expresión facial se controla con unos pocos músculos, no es necesario
+ modelar el espacio de todas las imágenes.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Principio de Vapnik
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Principio de Vapnik
+\end_layout
+
+\end_inset
+
+Cuando se trata de resolver un problema no debería resolverse, como paso
+ intermedio, un problema más difícil.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Herramientas para SSL
+\end_layout
+
+\begin_layout Subsection
+Introducción
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Introducción
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Aviso
+\end_layout
+
+\end_inset
+
+El software para SSL está muy disperso en distintas herramientas normalmente
+ escritas en MatLab, C o C++.
+\begin_inset Newline newline
+\end_inset
+
+Consultar la web:
+\color blue
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Semi-Supervised Learning Software} {http://pages.cs.wisc.edu/~je
+rryzhu/ssl/software.html}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Comentaremos el software que emplearemos en las actividades asociadas a
+ los métodos que describiremos.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Python
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Scikit-learn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+En scikit-learn dispone de métodos de 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {propagación de etiquetas} {http://scikit-learn.org/stable/modu
+les/label_propagation.html}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Hay también módulos externos para scikit-learn.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Semisup-learn} {https://github.com/oroszgy/semisup-learn}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ self-training y S3VM.
+ Para self-training el modelo supervisado tiene que tener el método predict_prob
+a.
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Sklearn-cotraining} {https://github.com/jjrob13/sklearn_cotrai
+ning}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {pomegranate} {http://pomegranate.readthedocs.io/en/latest/index.
+html}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ modelos generativos.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+R
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {RSSL} {https://cran.r-project.org/web/packages/RSSL/index.html}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ self-training, S3VM, métodos basados en grafos, ...
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {SSL} {https://cran.r-project.org/package=SSL}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ cotraining, propagación de etiquetas, self-training (xgboost), métodos
+ basados en grafos, ...
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Java
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Java
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+El módulo externo para Weka 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {collective-classification} {https://code.google.com/archive/p/c
+ollective-classification/}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ métodos basados en grafos, ...
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+ 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Keel} {http://www.keel.es/}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ self-training y cotraining.
+ Dispone de interfaz gráfica.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Algoritmos para SSL
+\end_layout
+
+\begin_layout Subsection
+Self-training (-learning)
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Algoritmo básico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Entrenar un clasificador supervisado 
+\begin_inset Formula $f$
+\end_inset
+
+ con el conjunto de datos etiquetados 
+\begin_inset Formula $L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Usar el clasificador para clasificar el conjunto de datos no etiquetados
+ 
+\begin_inset Formula $U$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Pasar datos de 
+\begin_inset Formula $U$
+\end_inset
+
+ a 
+\begin_inset Formula $L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Repetir los pasos 1, 2 y 3 hasta que 
+\begin_inset Formula $U$
+\end_inset
+
+ quede vacío.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Características
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Es el método más simple de SSL y es usado a menudo.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Es un método wrapper: envuelve un método SL.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+La elección del clasificador 
+\begin_inset Formula $f$
+\end_inset
+
+ está abierta.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Los errores cometidos por 
+\begin_inset Formula $f$
+\end_inset
+
+ tienden a reforzarse.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Como solución se pueden desetiquetar muestras con fiabilidad por debajo
+ de un umbral.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+La convergencia a una solución depende del caso.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Variaciones al método básico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Añadir a 
+\begin_inset Formula $L$
+\end_inset
+
+ solo los datos más fiables en cada iteración.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Añadir a 
+\begin_inset Formula $L$
+\end_inset
+
+ todos los datos, habría una sola iteración.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Añadir a 
+\begin_inset Formula $L$
+\end_inset
+
+ todos los datos ponderando según su fiabilidad, habría una sola iteración.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ejemplo exitoso con 1-NN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Tenemos 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $U$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Seleccionamos elemento de 
+\begin_inset Formula $U$
+\end_inset
+
+ que esté a la mínima distancia de cualquier elemento de 
+\begin_inset Formula $L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Le damos la etiqueta del elemento de 
+\begin_inset Formula $L$
+\end_inset
+
+ más cercano a él y lo pasamos a 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Los empates se deshacen aleatoriamente.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Repetimos 1 y 2 hasta vaciar 
+\begin_inset Formula $U$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Column
+0.5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<1->[scale=0.5]{figs/self-training-ok-0.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<1>[scale=0.5]{figs/self-training-ok-1.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<2-3>[scale=0.5]{figs/self-training-ok-2.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<2>[scale=0.5]{figs/self-training-ok-3.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3>[scale=0.5]{figs/self-training-ok-4.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<4>[scale=0.5]{figs/self-training-ok-5.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<5>[scale=0.5]{figs/self-training-ok-10.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<6->[scale=0.5]{figs/self-training-ok-15.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ejemplo fallido con 1-NN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Tenemos 
+\begin_inset Formula $L$
+\end_inset
+
+ y 
+\begin_inset Formula $U$
+\end_inset
+
+, pero ahora hay un outlier.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Procedemos como en el ejemplo anterior.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Un outlier situado en el sitio oportuno puede dar al traste con la clasificación.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+El outlier propaga su etiqueta.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+La clasificación no es correcta.
+\end_layout
+
+\begin_layout Column
+0.5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<1->[scale=0.5]{figs/self-training-not-ok-0.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<1>[scale=0.5]{figs/self-training-not-ok-1.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<2>[scale=0.5]{figs/self-training-not-ok-5.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3-4>[scale=0.5]{figs/self-training-not-ok-10.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<4>[scale=0.5]{figs/self-training-not-ok-12.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<5->[scale=0.5]{figs/self-training-not-ok-15.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Self-training con semisup-learn (Python)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para el ejemplo con semisup-learn cargaremos el notebook self-training-iris.ipynb.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Clasificar flores iris usando aprendizaje supervisado en los datos etiquetados
+ y self-training con todos los datos.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Self-training con SSL (R)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para el ejemplo con SSL cargaremos el notebook ssl-selftraining-example.ipynb.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Clasificar flores iris usando aprendizaje semi-supervisado.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Self-training con RSSL (R)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para el ejemplo con RSSL cargaremos el notebook example-self-learning-rssl.ipynb.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Ejemplo del uso de LearningCurveSSL para ver cómo puede fallar un self-learning.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Actividades self-training
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Actividad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Clasificar mediante self-training los datos de titanic.csv en "Survived"
+ o no usando como características "Pclass", "Sex", "Age".
+ Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+ etc.
+ Dar la matriz de confusión.
+ Usar los tres módulos comentados.
+\begin_inset Newline newline
+\end_inset
+
+Para cargar csv ver titanic_start_python.ipynb y titanic-start_r.ipynb.
+\end_layout
+
+\end_deeper
+\begin_layout Block
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Subsection
+Co-training y modelos multivista
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Introducción
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Queremos clasificar web en categorías.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Creamos dos vistas (conjuntos de características 
+\begin_inset Formula $X=[X_{1},\,X_{2}]$
+\end_inset
+
+ de cada web: contenido 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ y link 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Etiquetamos las vistas de algunas webs según las categorías.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Entrenamos un clasificador para cada vista y cada uno clasifica algunos
+ datos no etiquetados
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Cada clasificador enseña al otro con los datos que ha etiquetado.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Como el self-training pero con dos clasificadores que se enseñan mutuamente.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Hipótesis del co-training
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Hipótesis del co-training
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+La división en vistas 
+\begin_inset Formula $X=[X_{1},\,X_{2}]$
+\end_inset
+
+ existe.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Cada vista es capaz de entrenar un clasificador.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Las vistas son condicionalmente independientes dada una clase 
+\begin_inset Formula $C$
+\end_inset
+
+ (
+\begin_inset Formula $X_{1}\,\mathsf{y}\,X_{2}$
+\end_inset
+
+ no tiene porqué ser independientes pero si nos dan 
+\begin_inset Formula $C$
+\end_inset
+
+ sí (peso, vocabulario y edad).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<3->[scale=0.5]{figs/dos-vistas_horz.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Algoritmo básico del co-training
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Entrenar dos clasificadores 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ a partir de 
+\begin_inset Formula $\left(X_{1}^{l},\,Y_{1}^{l}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ a partir de 
+\begin_inset Formula $\left(X_{2}^{l},\,Y_{2}^{l}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Clasificar 
+\begin_inset Formula $X^{u}$
+\end_inset
+
+ usando 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ de forma independiente.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Co-training a velocidad 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Añadir los 
+\begin_inset Formula $k$
+\end_inset
+
+ datos más fiablemente etiquetados por 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ a 
+\begin_inset Formula $\left(X_{2}^{l},\,Y_{2}^{l}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Añadir los 
+\begin_inset Formula $k$
+\end_inset
+
+ datos más fiablemente etiquetados por 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ a 
+\begin_inset Formula $\left(X_{1}^{l},\,Y_{1}^{l}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Eliminar estos 
+\begin_inset Formula $2k$
+\end_inset
+
+ datos de 
+\begin_inset Formula $X^{u}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Repetir los pasos 2, 3 y 4 hasta acabar con 
+\begin_inset Formula $X^{u}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pros y contras del co-training
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Es un método wrapper que se puede aplicar a mucho clasificadores supervisados.
+\end_layout
+
+\begin_layout Itemize
+Es menos sensible a errores que el self-training.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Contras
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+La división de vistas de forma natural puede no existir.
+\end_layout
+
+\begin_layout Itemize
+Modelos usando ambas vistas pueden funcionar mejor.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Variantes del co-training
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+
+\series bold
+Co-EM (expectation maximization)
+\series default
+: da etiquetas probabilísticas que pueden cambiar entre iteraciones.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\series bold
+Co-regularization
+\series default
+: minimiza una función que depende de la complejidad (normas) de 
+\begin_inset Formula $f_{1}\,\mathsf{y}\,f_{2}$
+\end_inset
+
+, su acuerdo en los datos no etiquetados y una función de pérdida evaluada
+ en los datos etiquetados usando la media entre 
+\begin_inset Formula $f_{1}\,\mathsf{y}\,f_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+
+\series bold
+Co-regression
+\series default
+: usa regresores en lugar de clasificadores, la fiabilidad de las nuevas
+ etiquetas se estima por la disminución del MSE.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+
+\series bold
+Co-clustering
+\series default
+: funciona bajo la hipótesis de que el agrupamiento real subyacente asignará
+ los puntos correspondientes en cada vista al mismo grupo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A Survey on Multi-view Learning 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Modelos multivista
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Son una extensión del co-training en la que se usan más de dos clasificadores.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Se entrenan clasificadores de distintos tipos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Se clasifican los datos no etiquetados con cada clasificador.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Se añade la etiqueta votada por la mayoría.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Cotraining con sklearn-cotraining (Python)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para el ejemplo con sklearn-cotraining cargaremos el notebook sklearn-cotraining
+-examples.ipynb.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Coentrenaremos varios clasificadores para clasificar un conjunto con 25000
+ datos y 1000 características, comparando la clasificación supervisada con
+ la semi-supervisada.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Cotraining con SSL (R)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para el ejemplo con SSL cargaremos el notebook ssl-cotraining-example.ipynb.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Clasificar flores iris usando aprendizaje semi-supervisado.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Actividades cotraining
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Actividad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Clasificar mediante cotraining los datos de titanic.csv en "Survived" o no
+ usando como características "Pclass", "Sex", "Age".
+ Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+ etc.
+ Dar la matriz de confusión.
+ Usar los dos módulos comentados.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Self-labeled
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Introducción a self-labeled
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Estos métodos engloban al self-training y al co-training/multivista.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Características para clasificar:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Mecanismo de adición: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Incremental:
+\begin_inset Formula $k$
+\end_inset
+
+ más fiables en cada iteración.
+\end_layout
+
+\begin_layout Enumerate
+Por lotes: Se decide si un dato cumple el criterio de adición pero hasta
+ tomar todas las decisiones no se etiquetan realmente (todos) los datos,
+ se puede cambiar de opinión.
+\end_layout
+
+\begin_layout Enumerate
+Corrección: se añaden todos lo que cumplen un criterio, los que se etiquetan
+ en una iteración pueden perderla en otra.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Clasificador simple (p.
+ ej.
+ self-learning) vs.
+ múltiple (p.
+ ej.
+ co.training).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Usar uno o varios algoritmos de aprendizaje.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Vista simple o multivista.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+KLEE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Taxonomía de métodos self-labeled
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/self-labeled.svg
+	lyxscale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Uso de KEEL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Vamos a ver el uso sencillo de KEEL creando un experimento de clasificación
+ como se explica en el manual sección 7.3 (pg.
+ 172) y sección 2.3.1 (pg.
+ 14).
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Modelos generativos
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definición de modelo generativo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Modelo generativo
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $p(\mathbf{x},\,y)\,=\,p(y)p(\mathbf{x}|y)$
+\end_inset
+
+ siendo 
+\begin_inset Formula $p(\mathbf{x}|y)$
+\end_inset
+
+ una distribución de probabilidad compuesta (mixture distribution MM) identifica
+ble.
+\end_layout
+
+\begin_layout Definition
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Una MM es una distribución de probabilidad en la que los parámetros, o parte
+ de ellos, son variables aleatorias.
+\end_layout
+
+\begin_layout Definition
+Una familia de distribuciones 
+\begin_inset Formula $\{p_{\theta}\}$
+\end_inset
+
+ es identificable si 
+\begin_inset Formula $\theta_{1}\neq\theta_{2}\Longrightarrow p_{\theta_{1}}\neq p_{\theta_{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Con una cantidad suficiente de datos no etiquetados se pueden identificar
+ los componentes de la composición.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Modelo generativo en SSL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Asumimos que conocemos 
+\begin_inset Formula $p(\mathbf{x},\,y)$
+\end_inset
+
+ con parámetros 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+La distribución conjunta y la marginal 
+\begin_inset Formula $p(X^{l},\,Y^{l},\,X^{u}|\theta)\,=\,\underset{Y^{u}}{\sum}p(X^{l},\,Y^{l},\,X^{u},\,Y^{u}|\theta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Estimar 
+\begin_inset Formula $\theta$
+\end_inset
+
+ usando MLE o MAP o por métodos bayesianos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Con una cantidad suficiente de datos no etiquetados se pueden identificar
+ los componentes de la suma.
+\end_layout
+
+\begin_layout Standard
+Se puede ver como clustering con información adicional sobre la marginal.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ejemplos de modelos generativos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Mixtura de gaussianas (GMM):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Clasificación de imágenes usando MLE.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Mixtura de multinomiales (Naïve Bayes):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Categorización de textos usando MLE.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Modelos de Markov ocultos (HMM):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reconocimiento de voz usando el algoritmo de Baum y Welch.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Clasificación con GMM usando MLE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+La mixtura
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Parámetros del modelo: 
+\begin_inset Formula $θ=\left\{ w_{1},\,w_{2},\,μ_{1},\,μ_{2},\,\text{\Sigma}_{1},\,\text{\Sigma}_{2}\right\} $
+\end_inset
+
+ proporciones de clases, medias y covarianzas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+La GMM: 
+\begin_inset Formula $p(\mathbf{x},\,y)\,=\,\stackrel[i=1]{2}{\sum}w_{i}\mathcal{N}(\mu_{i},\,\Sigma_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Clasificación: 
+\begin_inset Formula $p(y|\mathbf{x},θ)=\dfrac{p(\mathbf{x},y|θ)}{\underset{y'}{\sum}p(\mathbf{x},y'|θ)}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Clasificación con GMM usando MLE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Clasificación binaria
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Usando datos etiquetados
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\log p(X_{l},Y_{l}|θ)=\stackrel[i=1]{l}{\sum}\log p(y_{i}|θ)p(\mathbf{x}_{i}|y_{i},θ)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La MLE es trivial: 
+\begin_inset Formula $w_{i}\rightarrow$
+\end_inset
+
+frecuencias, 
+\begin_inset Formula $\mu_{i}\rightarrow$
+\end_inset
+
+medias muestrales 
+\begin_inset Formula $\Sigma_{i}\rightarrow$
+\end_inset
+
+covarianzas muestrales para cada clase.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Con los datos etiquetados y 
+\color red
+no etiquetados
+\color inherit
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\log p(X_{l},Y_{l},X_{u}|θ)=\stackrel[i=1]{l}{\sum}\log p(y_{i}|θ)p(\mathbf{x}_{i}|y_{i},θ)+$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 22page%
+\end_inset
+
+
+\begin_inset Formula ${\color{red}\stackrel[i=l+1]{l+u}{\sum}\log\left(\stackrel[y=1]{2}{\sum}p(y|θ)p(\mathbf{x}_{i}|y,θ)\right)}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+La MLE es difícil, hay variables ocultas (
+\begin_inset Formula $Y^{u}$
+\end_inset
+
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Usaremos el algoritmo iterativo EM para obtener un máximo local.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Clasificación con GMM usando MLE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Aplicación de EM
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Obtenemos una estimación inicial 
+\begin_inset Formula $\theta^{0}=\left\{ w_{1}^{0},\,w_{2}^{0},\,μ_{1}^{0},\,μ_{2}^{0},\,\text{\Sigma}_{1}^{0},\,\text{\Sigma}_{2}^{0}\right\} $
+\end_inset
+
+ por MLE usando 
+\begin_inset Formula $(X^{l},\,Y^{l})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Paso E: etiqueta esperada 
+\begin_inset Formula $p(y|\mathbf{x},\,θ^{k})=\dfrac{p(\mathbf{x},\,y|θ^{k})}{\underset{y'}{\sum}p(\mathbf{x},\,y'|θ^{k})}$
+\end_inset
+
+ 
+\begin_inset Formula $\forall\,\mathbf{x}\in X^{u}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $x$
+\end_inset
+
+ se etiqueta de clase 
+\begin_inset Formula $c=1:2$
+\end_inset
+
+ con proporción 
+\begin_inset Formula $p(y=c|\mathbf{x},\,θ^{k})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Paso M: MLE de 
+\begin_inset Formula $\theta$
+\end_inset
+
+ con los ahora datos etiquetados de 
+\begin_inset Formula $X^{u}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $w_{1:2}\rightarrow$
+\end_inset
+
+suma de las proporciones de cada clase.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mu_{1:2}\,,\,\Sigma_{1:2}\rightarrow$
+\end_inset
+
+media y covarianza ponderadas de cada clase.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Repetimos 2 y 3 hasta alcanzar un máximo local, 
+\begin_inset Formula $k=1,\,2,\,...$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Es una especie de self-training.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pros y contras de los modelos generativos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Es un marco probabilístico claro y bien estudiado.
+\end_layout
+
+\begin_layout Itemize
+Puede ser muy efectivo si es modelo es cercano al correcto.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Contras
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A menudo es difícil verificar la corrección del modelo.
+\end_layout
+
+\begin_layout Itemize
+La identificabilidad del modelo, no todas las distribuciones lo son (Gauss
+ sí, Bernouilli y uniforme no).
+\end_layout
+
+\begin_layout Itemize
+EM obtiene óptimo locales no necesariamente globales.
+\end_layout
+
+\begin_layout Itemize
+Los datos no etiquetados pueden dañar si el modelo (
+\begin_inset Formula $p(y)$
+\end_inset
+
+ y 
+\begin_inset Formula $p(\mathbf{x}|y)$
+\end_inset
+
+) no es correcto.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ejemplo modelo incorrecto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Clasificación de textos por género y tema, un tema puede estar en varios
+ géneros.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<2>[scale=0.85]{figs/tema_genero-1.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<3>[scale=0.85]{figs/tema_genero-5.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+4-5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Posibles soluciones heurísticas:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Construir cuidadosamente el modelo generativo: p.
+ ej.
+ varias gaussianas por clase en lugar de una.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Dar menor peso a los datos no etiquetados (
+\begin_inset Formula ${\color{red}\lambda<1}$
+\end_inset
+
+)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\log p(X_{l},Y_{l},X_{u}|θ)=\stackrel[i=1]{l}{\sum}\log p(y_{i}|θ)p(\mathbf{x}_{i}|y_{i},θ)+$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space \hspace*{}
+\length 22page%
+\end_inset
+
+
+\begin_inset Formula ${\color{red}{\color{black}{\color{red}\lambda}\stackrel[i=l+1]{l+u}{\sum}\log\left(\stackrel[y=1]{2}{\sum}p(y|θ)p(\mathbf{x}_{i}|y,θ)\right)}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Variante: cluster-and-label
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Cluster-and-label es una variante discriminativa, en lugar de usar modelos
+ probabilísticos usa algoritmos de clustering.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Columns
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.60
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Entradas 
+\begin_inset Formula $(x_{1},y_{1}),...,(x_{l},y_{l}),$
+\end_inset
+
+ 
+\begin_inset Formula $x_{l+1},...,x_{l+u}$
+\end_inset
+
+, un alg.
+ de clustering 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ y un alg.
+ de clasificación SL 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Agrupar 
+\begin_inset Formula $x_{1},...,x_{l},x_{l+1},...,x_{l+u}$
+\end_inset
+
+ usando 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Para cada cluster sea 
+\begin_inset Formula $S$
+\end_inset
+
+ sus datos etiquetados.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Entrenar un clasificador SL para 
+\begin_inset Formula $S$
+\end_inset
+
+, 
+\begin_inset Formula $f_{S}=\mathcal{L}(S)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->
+\end_layout
+
+\end_inset
+
+Aplicar 
+\begin_inset Formula $f_{S}$
+\end_inset
+
+ a no etiquetados de 
+\begin_inset Formula $S$
+\end_inset
+
+, así obtenemos 
+\begin_inset Formula $y_{l+1},...,y_{l+u}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Column
+.40
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<2->[scale=0.45]{figs/cluster_and_label-proc-5.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<2>[scale=0.45]{figs/cluster_and_label-proc-10.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3-4>[scale=0.45]{figs/cluster_and_label-proc-15.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<5->[scale=0.45]{figs/cluster_and_label-proc-20.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+C-and-L puede funcionar o no
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ clustering jerárquico aglomerativo, 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ voto de mayoría
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<2->[scale=1]{figs/cluster-and-label-fault-1.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3->[scale=1]{figs/cluster-and-label-fault-5.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pros y contras del cluster-and-label
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Funciona bastante bien cuando la hipótesis de los clusters se cumple y se
+ elige el algoritmo de clustering apropiado.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Contras
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Si el algoritmo tiene muchos parámetros puede no ser aplicable en aplicaciones
+ reales.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Modelos generativos con pomegranate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para el ejemplo con pomegranate cargaremos el notebook pomegranate_example.ipynb.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Para un ejemplo más complejo cargaremos el notebook Tutorial_8_pomegranate_Semis
+upervised_Learning.ipynb.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Actividad con pomegranate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Actividad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Clasificar mediante modelos generativos los datos de titanic.csv en "Survived"
+ o no usando como características "Pclass", "Sex", "Age".
+ Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+ etc.
+ Dar la matriz de confusión.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Subsection
+Semi-supervised SVM (S3VM)
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+SVM con datos etiquetados y no etiquetados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+SVM con solo datos etiquetados.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Añadimos datos no etiquetados.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+S3VM con todos los datos.
+\end_layout
+
+\begin_layout Column
+0.5
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<1->[scale=0.45]{figs/s3vm-5-10.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<1-2>[scale=0.45]{figs/s3vm-12.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<2->[scale=0.45]{figs/s3vm-15.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3->[scale=0.45]{figs/s3vm-20.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Columns
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Hipótesis de separación de baja densidad (de agrupamiento)
+\end_layout
+
+\end_inset
+
+Los datos no etiquetados deben estar separados por un margen amplio.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+La idea de S3VM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Enumerar todos los posibles 
+\begin_inset Formula $2^{u}$
+\end_inset
+
+ etiquetados de 
+\begin_inset Formula $X^{u}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Entrenar un SVM supervisado para cada etiquetado y 
+\begin_inset Formula $X^{l}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Elegir el SMV con margen más amplio.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Semi-supervised SVMs (S3VMs) = Transductive SVMs (TSVMs) 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+SVM supervisado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\underset{\mathbf{w},b,\xi_{i}}{\min}\dfrac{1}{2}\mathbf{w}^{\mathsf{t}}\mathbf{w}+C\sum\xi_{i}$
+\end_inset
+
+, siendo 
+\begin_inset Formula $C$
+\end_inset
+
+ regularización.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+llamando 
+\begin_inset Formula $f(\mathbf{x})=\mathbf{w}^{\mathsf{t}}\mathbf{x}+b$
+\end_inset
+
+, las restricciones quedan: 
+\begin_inset Formula $yf(\mathbf{x})\geq1-\xi_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Las variables de holgura (slack) 
+\begin_inset Formula $\xi_{i}\geq0$
+\end_inset
+
+, 
+\begin_inset Formula $\xi_{i}=\max\left(0,1-y_{i}f(\mathbf{x}_{i})\right)$
+\end_inset
+
+ hinge loss (función de pérdida)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Esta función es convexa, garantiza óptimos globales.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Clasificamos con 
+\begin_inset Formula $\mathtt{sign(}f(\mathbf{x}))$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Función objetivo de S3VM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.6
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\underset{\mathbf{w},b,\xi_{i}}{\min}\,\,\,\underset{{\color{red}y_{u}\in\{-1,+1\}^{n}}}{{\color{red}\min}}\dfrac{1}{2}\mathbf{w}^{\mathsf{t}}\mathbf{w}+C\sum\xi_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+con las restricciones:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $yf(\mathbf{x})\geq1-\xi_{i}\,\,\,i=1,\,...\,,l$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $yf(\mathbf{x})\geq1-\xi_{i}\,\,\,i=l+1,\,...\,,l+u$
+\end_inset
+
+ .
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Las variables de holgura (slack) 
+\begin_inset Formula $\xi_{i}\geq0$
+\end_inset
+
+, 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\xi_{i}=\max\left(0,1-y_{i}f(\mathbf{x}_{i})\right)$
+\end_inset
+
+ para 
+\begin_inset Formula $L$
+\end_inset
+
+ (hinge loss).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+
+\color red
+
+\begin_inset Formula $\xi_{i}=\max\left(0,1-\left|f(\mathbf{x}_{i})\right|\right)$
+\end_inset
+
+ para 
+\begin_inset Formula $U$
+\end_inset
+
+ (hat loss)
+\color inherit
+ .
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->
+\end_layout
+
+\end_inset
+
+Clasificamos con 
+\begin_inset Formula $sign(f(\mathbf{x}))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Column
+0.4
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<4->[scale=0.7]{figs/hinge-loss-1.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<5->[scale=0.7]{figs/hinge-loss-5.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Función objetivo de S3VM escrita sin restricciones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Función objetivo
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\underset{f}{\min}\,\dfrac{1}{2}\mathbf{w}^{\mathsf{t}}\mathbf{w}+C_{l}\stackrel[i=1]{l}{\sum}\max\left(0,1-y_{i}f(x_{i})\right)+C_{u}\stackrel[i=l+1]{l+u}{\sum}\max\left(0,1-\left|f(x_{i})\right|\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+La función de pérdida para no etiquetados no es convexa, luego no proporciona
+ óptimos globales.
+\end_layout
+
+\begin_layout Itemize
+Habrá que diseñar métodos de optimización especiales.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Métodos de optimización para S3VM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Label-switch-retraining (
+\begin_inset Formula $\mathsf{S3VM}^{light}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+Gradient descent (
+\begin_inset Formula $\mathsf{\nabla S3VM}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+Continuation (cS3VM).
+\end_layout
+
+\begin_layout Itemize
+Concave-convex procedure (CCCP).
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Optimization Techniques for Semi-Supervised Support Vector Machines [Chapelle
+ et al., 2008]
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+An overview on semi-supervised support vector machine [Ding et al.., 2015]
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Restricción de clases equilibradas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+La optimización directa de S3VM suele producir clasificaciones desequilibradas,
+ más datos de los que debería en un clase.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Solución: introducir una restricción en el problema a optimizar:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Equilibrio heurístico 
+\begin_inset Formula $\dfrac{1}{u}\stackrel[i=l+1]{l+u}{\sum}y_{i}=\dfrac{1}{l}\stackrel[i=1]{l}{\sum}y_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Equilibrio de clase nivelada 
+\begin_inset Formula $\dfrac{1}{u}\stackrel[i=l+1]{l+u}{\sum}f(x_{i})=\dfrac{1}{l}\stackrel[i=1]{l}{\sum}y_{i}$
+\end_inset
+
+, preferible porque 
+\begin_inset Formula $f$
+\end_inset
+
+ es un número real y es más fácil de optimizar.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathsf{S3VM}^{light}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Entrenar un SVM con los datos etiquetados.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Clasificar los datos no etiquetados.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Bucle externo: empezar con valores pequeños de 
+\begin_inset Formula $C_{u}$
+\end_inset
+
+ e ir aumentando.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Obtener nuevo clasificador usando hinge loss para los dos tipos de datos
+ en la función a optimizar.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Bucle interno:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Dos etiquetas son intercambiables si son distintas y al cambiar sus valores
+ la función de pérdida disminuye.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->
+\end_layout
+
+\end_inset
+
+Intercambiar etiquetas hasta que no queden etiquetas intercambiables.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathsf{\nabla S3VM}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.6
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Similar a 
+\begin_inset Formula $\mathsf{S3VM}^{light}$
+\end_inset
+
+ pero solo con el bucle externo.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Usa 
+\begin_inset Formula $\exp(-5x^{2})$
+\end_inset
+
+ (es diferenciable) en lugar de hat loss para los datos no etiquetados en
+ la función a optimizar.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Hace 
+\begin_inset Formula $b=\dfrac{1}{l}\stackrel[i=1]{l}{\sum}y_{i}$
+\end_inset
+
+, equilibra las clases automáticamente.
+ 
+\end_layout
+
+\begin_layout Column
+0.4
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<4->[scale=0.6]{figs/hat-exp-loss.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+cS3VM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.6
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Similar a 
+\begin_inset Formula $\nabla S3VM$
+\end_inset
+
+, el bucle externo no varia 
+\begin_inset Formula $C_{u}$
+\end_inset
+
+, sino suaviza la función objetivo por convolución con una gaussiana de
+ varianza 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Se va aumentando 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+La suavización llega hasta una función convexa, ¿
+\begin_inset Formula $\gamma$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+A la que se le halla el óptimo global.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+Recorriendo el camino inverso,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->
+\end_layout
+
+\end_inset
+
+se llega al óptimo global de la función original.
+\end_layout
+
+\begin_layout Column
+0.4
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<1->[scale=0.7]{figs/csvm-1.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<2->[scale=0.7]{figs/csvm-5.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3->[scale=0.7]{figs/csvm-10.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<4->[scale=0.7]{figs/csvm-15.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<5->[scale=0.7]{figs/csvm-20.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<6->[scale=0.7]{figs/csvm-25.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+CCCP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.65
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+SVM con los datos etiquetados.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Se clasifican los datos no etiquetados.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\max\left(0,1-\left|f(x_{i})\right|\right)\,=\,{\color{blue}\max\left(0,\left|f(x_{i})\right|-1\right)}+{\color{red}(1-\left|f(x_{i})\right|)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+La parte cóncava de la función objetivo se aproxima por una tangente.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+La función objetivo transformada es convexa, se halla su mínimo.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->
+\end_layout
+
+\end_inset
+
+Se va iterando hasta llegar al mínimo global de la función objetivo original.
+\end_layout
+
+\begin_layout Column
+0.35
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<3->[scale=0.35]{figs/cccp.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pros y contras de S3VM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Aplicable donde SVM lo es.
+\end_layout
+
+\begin_layout Itemize
+Dispone de un marco matemático claro.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Contras
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Difícil de optimizar.
+\end_layout
+
+\begin_layout Itemize
+Puede quedar atrapado en óptimos locales.
+\end_layout
+
+\begin_layout Itemize
+Resultados potencialmente peores que otros métodos.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+S3VM con semisup-learn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para un ejemplo con semisup-learn cargaremos el notebook compare_linsvm_methods.i
+pynb.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+S3VM con RSSL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para un ejemplo con RSSL cargaremos el notebook example-S4VM.Rmd.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Para otro ejemplo con RSSL cargaremos el notebook example-TSVM.Rmd.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Actividades de S3VM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Actividad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Clasificar mediante S3VM los datos de titanic.csv en "Survived" o no usando
+ como características "Pclass", "Sex", "Age".
+ Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+ etc.
+ Dar la matriz de confusión.
+ Usar varios de los módulos comentados.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Modelos basados en grafos
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Introducción
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Construir un grafo con vértices representando a los datos y aristas representand
+o la similitud entre los datos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Buscar técnicas para recortar el grafo:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Datos etiquetados
+\end_layout
+
+\begin_layout Itemize
+Heurísticas, p.
+ ej.
+ corte mínimo.
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Hipótesis
+\end_layout
+
+\end_inset
+
+Vértices unido por una arista de peso alto pertenecerán a la misma clase.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Construcción del grafo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Construcción del grafo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{G}=<\mathcal{V},\mathcal{A}>$
+\end_inset
+
+donde 
+\begin_inset Formula $\mathcal{V}=\{\mathbf{x}_{i}\}_{i=1}^{l+u}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Conectar lo vértices usando una heurística:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\epsilon$
+\end_inset
+
+-NN 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+: 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{x}_{j}$
+\end_inset
+
+ están conectados si 
+\begin_inset Formula $dist(\mathbf{x}_{i},\mathbf{x}_{j})<\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $k$
+\end_inset
+
+-NN: 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{x}_{j}$
+\end_inset
+
+ están conectados si 
+\begin_inset Formula $\mathbf{x}_{j}$
+\end_inset
+
+ es uno de los 
+\begin_inset Formula $k$
+\end_inset
+
+-NN de 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Ponderación del grafo:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Ingenua: si 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{x}_{j}$
+\end_inset
+
+ están conectados, el peso 
+\begin_inset Formula $w_{ij}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Kernel gaussiano si 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\mathbf{x}_{j}$
+\end_inset
+
+ están conectados, el peso 
+\begin_inset Formula $w_{ij}=\exp\left(-\dfrac{dist^{2}(\mathbf{x}_{i},\mathbf{x}_{j})}{\sigma^{2}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ejemplo de grafo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Utilizamos la distancia entre píxeles.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/digitos.svg
+	lyxscale 50
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Algoritmos basados en grafos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Propagación de etiquetas.
+\end_layout
+
+\begin_layout Itemize
+Partición del grafo
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Corte mínimo.
+\end_layout
+
+\begin_layout Itemize
+Función armónica.
+\end_layout
+
+\begin_layout Itemize
+Regularización de variedades.
+\end_layout
+
+\begin_layout Itemize
+Consistencia local y global.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\shape italic
+Robust and Scalable Graph-Based Semisupervised Learning [ Liu et al.
+ 2012]
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Propagación de etiquetas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.6
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Entrenamiento SVM: no considerar la distribución de los datos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Para incluir los no etiquetdos en la predicción de etiquetas:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Conectar los puntos cercanos entre sí.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Propagar las etiquetas por los nodos conectados...
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+hasta completar el grafo.
+\end_layout
+
+\end_deeper
+\begin_layout Column
+0.4
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<1->[scale=0.45]{figs/label_prop-1.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<1-2>[scale=0.45]{figs/label_prop-2.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3->[scale=0.45]{figs/label_prop-3.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3>[scale=0.45]{figs/label_prop-5.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<4>[scale=0.45]{figs/label_prop-10.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<5->[scale=0.45]{figs/label_prop-15.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Partición del grafo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Columns
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+0.6
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+La idea es que la clasificación es una partición del grafo.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Buscar una frontera de clasificación:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Consistente con los datos etiquetados
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Particiones el grafo con cortes pequeños.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Los distintos métodos varían en la forma de definir la función de corte.
+\end_layout
+
+\begin_layout Column
+0.4
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics<2->[scale=0.75]{figs/small-cut-1.pdf}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<2>[scale=0.75]{figs/small-cut-5.pdf}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+llap{
+\backslash
+includegraphics<3>[scale=0.75]{figs/small-cut-10.pdf}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pros y contras de métodos basados en grafos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Pros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dispone de un marco matemático claro.
+\end_layout
+
+\begin_layout Itemize
+El rendimiento es bueno si el grafo se ajusta a la tarea.
+\end_layout
+
+\begin_layout Itemize
+Se puede extender a grafos dirigidos.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Only
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout AlertBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Contras
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+El rendimiento es malo si el grafo lo es.
+\end_layout
+
+\begin_layout Itemize
+Sensible a la estructura del grafo y a los pesos.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Clasificación mediante grafos con sklearn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Para un ejemplo con LabelPropagation cargaremos el notebook plot_label_propagati
+on_structure.ipnyb.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Para un ejemplo con LabelSpreading cargaremos el notebook plot_label_propagation
+_digits.ipynb.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Actividad con sklearn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Actividad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Clasificar mediante sklearn los datos de titanic.csv en "Survived" o no usando
+ como características "Pclass", "Sex", "Age".
+ Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+ etc.
+ Dar la matriz de confusión.
+ Usar varios de los módulos comentados.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Clasificación mediante grafos con Weka
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+Explicar el uso de Weka en aprendizaje semi-supervisado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Actividad listado métodos de SSl y RSSL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Actividad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Leer los manuales SLL.pdf y RSSL.pdf y clasificar los métodos que aparecen
+ en las categoría que se han explicado.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Bibliografía
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 3
+status open
+
+\begin_layout Plain Layout
+allowframebreaks
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Bibliografía
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Semi-Supervised Learning, Olivier Chapelle; Bernhard Schölkopf; Alexander
+ Zien.
+ MIT-Press
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Semi-Supervised Learning Literature Survey, Xiaojin Zhu}
+ {http://pages.cs.wisc.edu/~jerryzhu/pub/SSL_EoML.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Hands-on Machine Learning with Scikit-Learn and TensorFlow,
+ Aurélien Géron} {http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programm
+ing/9781491962282}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Python: Deeper Insights into Machine Learning, Sebastian
+ Raschka; David Julian; John Hearty} {http://proquest.safaribooksonline.com.ezproxy.
+uned.es/book/programming/python/9781787128576}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Scikit-learn : Machine Learning Simplified, Raúl Garreta;
+ Guillermo Moncecchi; Trent Hauck; Gavin Hackeling} {http://proquest.safaribookso
+nline.com.ezproxy.uned.es/book/programming/machine-learning/9781788833479}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Python: Real World Machine Learning, Prateek Joshi; John
+ Hearty; Bastiaan Sjardin; Luca Massaron; Alberto Boschetti} {http://proquest.saf
+aribooksonline.com.ezproxy.uned.es/book/programming/python/9781787123212}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Machine Learning: End-to-End guide for Java developers,
+ Richard M.
+ Reese; Jennifer L.
+ Reese; Boštjan Kaluža; Dr.
+ Uday Kamath; Krishna Choppella} {http://proquest.safaribooksonline.com.ezproxy.uned.
+es/book/programming/machine-learning/9781788622219}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Robust and Scalable Graph-Based Semisupervised Learning,
+ Wei Liu; Jun Wang} {http://www.ee.columbia.edu/~wliu/PIEEE12_gssl.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {RSSL: Semi-supervised Learning in R, Jesse H.
+ Krijthe} {https://arxiv.org/abs/1612.07993}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Self-labeled techniques for semi-supervised learning:
+ taxonomy, software and empirical study, Isaac Triguero; Salvador García;
+ Francisco Herrera } {http://sci2s.ugr.es/keel/papers/semi-supervised/2013-KAIS-Tr
+iguero.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ThankYouFrame
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

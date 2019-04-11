@@ -1,0 +1,19 @@
+---
+title: "Para actividad titanic"
+output: html_notebook
+---
+```{r}
+library(RSSL)
+library(caret)
+```
+```{r}
+# Cargar solo las columnas necesarias
+titanic <- read.csv(file="titanic.csv")[c("Survived", "Pclass", "Sex", "Age")]
+str(titanic)
+```
+```{r}
+# Eliminar datos faltantes
+titanic<-titanic[!is.na(titanic$Age),]
+titanic
+```
+

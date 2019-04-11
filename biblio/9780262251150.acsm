@@ -1,0 +1,27 @@
+<fulfillmentToken fulfillmentType="buy" auth="user" xmlns="http://ns.adobe.com/adept">
+  <distributor>urn:uuid:cce11359-e152-491f-bbce-b03eb697cd22</distributor>
+  <operatorURL>http://drm.firebrandtech.com/fulfillment</operatorURL>
+  <transaction>4e2051ed1b734c3dacc475ecbccd1b1a</transaction>
+  <expiration>2017-08-22T13:45:15-04:00</expiration>
+  <resourceItemInfo>
+    <resource>urn:uuid:1e0d5527-c97a-43b8-96d1-a3a20126388b</resource>
+    <resourceItem>0</resourceItem>
+    <metadata>
+      <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Semi-Supervised Learning</dc:title>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/"></dc:creator>
+      <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">The MIT Press</dc:publisher>
+      <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">urn:ean:9780262251150</dc:identifier>
+      <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/pdf</dc:format>
+    </metadata>
+    <licenseToken>
+      <resource>urn:uuid:1e0d5527-c97a-43b8-96d1-a3a20126388b</resource>
+      <permissions>
+        <display/>
+        <excerpt/>
+        <print/>
+        <play/>
+      </permissions>
+    </licenseToken>
+  </resourceItemInfo>
+  <hmac>bwf3mPbdWPcIm/NcFpCy0hijf+U=</hmac>
+</fulfillmentToken>

@@ -1,0 +1,753 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{html}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family sfdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Software para SSL
+\end_layout
+
+\begin_layout Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+date{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El software para Semi-supervised Learning está muy disperso y vamos a usar
+ herramientas creadas en varios lenguajes como Python, R y Java.
+ En este documento se dan las instrucciones para instalar el software necesario,
+ las descargas se pueden realizar desde los enlaces incluidos o se puede
+ descargar el material que esté en la plataforma del curso de una vez usando
+ la opción 
+\begin_inset Quotes fld
+\end_inset
+
+Descargar carpeta
+\begin_inset Quotes frd
+\end_inset
+
+ para la carpeta Material SSL/Modulos asociada a la sesión 7 del Módulo
+ 5.
+ Para solucionar posibles problemas en la instalación se ha reservado un
+ tiempo en la sesión del viernes 13 de febrero.
+\end_layout
+
+\begin_layout Section*
+Python
+\end_layout
+
+\begin_layout Standard
+Escritos en Python usaremos dos módulos Sklearn_cotraining y Semisup-learn.
+ Aunque estos módulos están disponibles en sus respectivos githubs en Internet,
+ se les ha realizado algunos cambios para usarlos desde Jupyter por lo que
+ hay que descargarlos desde la plataforma del curso.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Módulo sklearn_cotraining
+\end_layout
+
+\begin_layout Standard
+Las fuentes se encuentran en el archivo 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {sklearn
+\backslash
+_cotraining-master.zip} {https://tallerdigital.uned.es/cursos/pluginfile.php/6799/mo
+d_folder/content/0/Modulos/sklearn_cotraining-master.zip?forcedownload=1}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ disponible en la carpeta Material SSL/Modulos asociada a la sesión 7 del
+ Módulo 5.
+ Es un módulo para 
+\series bold
+Python 3
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Se instala con:
+\end_layout
+
+\begin_layout Standard
+pip install sklearn_cotraining-master.zip, desde el directorio donde esté
+ el zip.
+\end_layout
+
+\begin_layout Standard
+Para probar la instalación cargar en Jupyter el notebook 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {cotraining-python-test.ipynb} {https://tallerdigital.uned.es/cur
+sos/pluginfile.php/6799/mod_folder/content/0/Modulos/cotraining-python-test.ipynb?
+forcedownload=1}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+, al ejecutarlo no debe salir ningún mensaje, señal de que el módulo ha
+ sido importado correctamente.
+\end_layout
+
+\begin_layout Standard
+La web de este módulo es 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {jjrob13/sklearn
+\backslash
+_cotraining} {https://github.com/jjrob13/sklearn_cotraining}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Módulo semisup-learn
+\end_layout
+
+\begin_layout Standard
+Las fuentes del módulo corregido se encuentran en el archivo 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {semisup-learn-master.zip} {https://tallerdigital.uned.es/cursos/
+pluginfile.php/6799/mod_folder/content/0/Modulos/semisup-learn-master.zip?forcedow
+nload=1}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ disponible en la carpeta Material SSL/Modulos asociada a la sesión 7 del
+ Módulo 5.
+ El módulo puede funcionar con Python 2 o 3 en Anaconda o instalaciones
+ locales.
+ En los ejemplos hay que cambiar print por print() en Python 3.
+ Va mejor en Python 2.
+\end_layout
+
+\begin_layout Standard
+Se instala con:
+\end_layout
+
+\begin_layout Standard
+pip install semisup-learn-master.zip, desde el directorio donde esté el zip.
+\end_layout
+
+\begin_layout Standard
+Para probar la instalación cargar en Jupyter el notebook 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {semisup-python-test.ipynb} {https://tallerdigital.uned.es/cursos
+/pluginfile.php/6799/mod_folder/content/0/Modulos/semisup-python-test.ipynb?forced
+ownload=1}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+, al ejecutarlo no debe salir ningún mensaje, señal de que el módulo ha
+ sido importado correctamente.
+ 
+\end_layout
+
+\begin_layout Standard
+En una instalación de Anaconda necesita la 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {librería nlopt} {https://nlopt.readthedocs.io/en/latest/}
+\end_layout
+
+\end_inset
+
+, 
+\color inherit
+para instalarla con conda:
+\end_layout
+
+\begin_layout Standard
+conda config --add channels conda-forge
+\end_layout
+
+\begin_layout Standard
+conda install nlopt
+\end_layout
+
+\begin_layout Standard
+La web de este módulo es 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {oroszgy/semisup-learn} {https://github.com/oroszgy/semisup-lea
+rn}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Módulo pomegranate
+\end_layout
+
+\begin_layout Standard
+En este web 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {pomegranate} {http://pomegranate.readthedocs.io/en/latest/index.
+html}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ se encuentra una buena descripción del módulo.
+\end_layout
+
+\begin_layout Standard
+Se instala con:
+\end_layout
+
+\begin_layout Standard
+pip install pomegranate
+\end_layout
+
+\begin_layout Section*
+R
+\end_layout
+
+\begin_layout Standard
+Instalaremos el software necesario para trabajar con R desde Jupyter, de
+ esta manera se podrá usar Python y R en un mismo notebook, e instalaremos
+ los módulos SSL y RSSL para trabajar con el aprendizaje semi-supervisado
+ en R.
+\end_layout
+
+\begin_layout Subsection*
+Instalación de R en Jupyter
+\end_layout
+
+\begin_layout Standard
+La instrucciones para instalar R en Jupyter se pueden encontrar en el blog
+ 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {Jupyter And R Markdown: Notebooks With R} {https://www.datacam
+p.com/community/blog/jupyter-notebook-r
+\backslash
+#jupyter}
+\end_layout
+
+\end_inset
+
+.
+ 
+\color inherit
+Si todo ha ido bien al pulsar el botón New de la ventana inicial Jupyter
+ o en File->New notebook de cualquier notebook aparecerá R en el desplegable.
+\end_layout
+
+\begin_layout Standard
+Se puede usar R y Python en un mismo notebook (R magic), ver el enlace anterior,
+ para probarlo descargad el notebook 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {rmagic
+\backslash
+_example.ipynb} {https://gist.github.com/simecek/019d87c55fec3839d95bbf8489dde61d}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Módulo SSL
+\end_layout
+
+\begin_layout Standard
+Se instala desde la consola de R (preferiblemente como administrador) usando
+ los comandos: 
+\end_layout
+
+\begin_layout Standard
+source("https://bioconductor.org/biocLite.R")
+\end_layout
+
+\begin_layout Standard
+biocLite("graph")
+\end_layout
+
+\begin_layout Standard
+install.packages("SSL")
+\end_layout
+
+\begin_layout Standard
+Para Windows y Mac se instalan librerías ya compiladas, para Linux no, en
+ esta caso habrá que tener instaladas las herramientas de compilación de
+ C.
+ Para probar la instalación cargar en Jupyter el notebook 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {ssl
+\backslash
+_test.ipynb} {https://tallerdigital.uned.es/cursos/pluginfile.php/6799/mod_folder/co
+ntent/0/Modulos/ssl_test.ipynb?forcedownload=1}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+, al ejecutarlo no debe salir ningún mensaje, señal de que el módulo ha
+ sido importado correctamente.
+ 
+\end_layout
+
+\begin_layout Standard
+El manual se puede encontrar en la plataforma 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {SSL.pdf} {https://tallerdigital.uned.es/cursos/pluginfile.php/679
+9/mod_folder/content/0/Modulos/SSL.pdf?forcedownload=1}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Standard
+La web de este módulo es 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {SSL} {https://cran.r-project.org/web/packages/SSL/index.html}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Módulo RSSL
+\end_layout
+
+\begin_layout Standard
+Se instala desde la consola de R (preferiblemente como administrador) usando
+ el comando: 
+\end_layout
+
+\begin_layout Standard
+install.packages("RSSL")
+\end_layout
+
+\begin_layout Standard
+Para Windows y Mac se instalan librerías ya compiladas, para Linux no, en
+ esta caso habrá que tener instaladas las herramientas de compilación de
+ C.
+ Para probar la instalación cargar en Jupyter el notebook 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {rssl
+\backslash
+_test.ipynb} {https://tallerdigital.uned.es/cursos/pluginfile.php/6799/mod_folder/co
+ntent/0/Modulos/rssl_test.ipynb?forcedownload=1}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+, al ejecutarlo no debe salir ningún mensaje, señal de que el módulo ha
+ sido importado correctamente.
+ 
+\end_layout
+
+\begin_layout Standard
+El manual se puede encontrar en la plataforma 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {RSSL.pdf} {https://tallerdigital.uned.es/cursos/pluginfile.php/67
+99/mod_folder/content/0/Modulos/RSSL.pdf?forcedownload=1}
+\end_layout
+
+\end_inset
+
+,
+\color inherit
+ un documento más sencillo es 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {RSSL
+\backslash
+-Classifiers.html} {https://tallerdigital.uned.es/cursos/pluginfile.php/6799/mod_fol
+der/content/0/Modulos/RSSL-Classifiers.html?forcedownload=1}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Standard
+La web de este módulo es 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {RSSL} {https://cran.r-project.org/web/packages/RSSL/index.html}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Java
+\end_layout
+
+\begin_layout Standard
+Para Java tenemos un programa con GUI llamado KEEL, desarrollado en la Universid
+ad de Granada, y una extensión de Weka llamada collective-classification.
+\end_layout
+
+\begin_layout Subsection*
+KEEL
+\end_layout
+
+\begin_layout Standard
+La descarga de este programa se realiza desde su web 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {KEEL} {http://www.keel.es/}
+\end_layout
+
+\end_inset
+
+
+\color inherit
+, descargad la última versión 
+\begin_inset Quotes fld
+\end_inset
+
+2015-03-23
+\begin_inset Quotes frd
+\end_inset
+
+, descomprimir el fichero y ya se puede ejecutar.
+ Desde este enlace también se pueden descargar el manual y datasets.
+\end_layout
+
+\begin_layout Subsection*
+Weka collective-classification
+\end_layout
+
+\begin_layout Standard
+La web de este módulo es 
+\color blue
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink {fracpete/collective-classification-weka-package} {https://git
+hub.com/fracpete/collective-classification-weka-package}
+\end_layout
+
+\end_inset
+
+,
+\color inherit
+ se debe descargar la versión más reciente 
+\begin_inset Quotes fld
+\end_inset
+
+Release 2015.2.27
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Para instalar el zip arrancar Weka, lanzar su Package manager y clicar
+ el botón Unofficial File/URL, si todo ha ido bien aparecerá una nueva pestaña
+ en Weka Explorer titulada Collective, ver figuras.
+ Conviene descomprimir el zip para acceder al manual.pdf y a la carpeta doc
+ con la documentación en formato html.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/weka-install1.png
+	lyxscale 50
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/weka-install2.svg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/weka-install3.svg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

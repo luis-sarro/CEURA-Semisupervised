@@ -1,0 +1,22 @@
+Python 3 
+
+Módulo sklearn_cotraining-master.zip
+Se instala con -> pip3 install sklearn_cotraining-master.zip, si no va con pip3 probar con pip.
+Para probar la instalación cargar en Jupyter el notebook cotraining-python-test.ipynb, al ejecutarlo no debe salir ningún mensaje, señal de que el módulo ha sido importado correctamente.
+
+///////////////////
+
+Python 2
+
+semisup-learn-master.zip
+Se instala con -> pip install semisup-learn-master.zip
+Para probar la instalación cargar en Jupyter el notebook semisup-python-test.ipynb, al ejecutarlo no debe salir ningún mensaje, señal de que el módulo ha sido importado correctamente.
+
+//////////////////
+
+R
+
+La instrucciones para instalar R en Jupyter se pueden encontrar en https://www.datacamp.com/community/blog/jupyter-notebook-r#jupyter
+
+Se puede usar R y Python en un mismo notebook (R magic) para probarlo descargad el notebook de este enlace https://gist.github.com/simecek/019d87c55fec3839d95bbf8489dde61d.
+

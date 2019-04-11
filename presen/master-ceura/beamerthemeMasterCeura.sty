@@ -1,0 +1,194 @@
+% Gelugor (Universiti Sains Malaysia) presentation theme for beamer
+%
+% LIM Lian Tze <liantze@gmail.com>, 2011
+% http://liantze.penguinattack.org/latextypesetting
+%
+% Changelog:
+%
+% Version 1.0:
+%   First public version.
+
+\ProvidesPackage{beamerthemeMasterCeura}[2017/12/22]
+
+\definecolor{UNEDGreen}{RGB}{4,77,64}
+\definecolor{LightGreen}{RGB}{140,182,74}
+\definecolor{USMPurple}{RGB}{88,43,129}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Outer theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme[width=.0\paperwidth]{sidebar}
+\setlength{\beamer@headheight}{.185\paperheight}
+% \pgfdeclareimage[width=.1\paperwidth]{small-logo}{usmlg}
+\pgfdeclareimage[width=0.945\paperwidth]{line-head}{linea_head}
+\pgfdeclareimage[width=0.95\paperwidth]{type-logo}{head_uned}
+\pgfdeclareimage[width=\paperwidth]{head-frame}{head_frame}
+\pgfdeclareimage[width=.33\paperwidth]{logos}{uned_ceura}
+\pgfdeclareimage[width=.33\paperwidth]{large-corner}{large-corner}
+%\pgfdeclareimage[height=\beamer@headheight]{small-corner}{small-corner}
+\setbeamertemplate{sidebar left}{%
+%\vskip7pt
+%\insertverticalnavigation{\beamer@sidebarwidth}%
+}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% \setbeamertemplate{footline}[text line]{%
+% \insertshortauthor\strut\hfill\insertshorttitle\hfill\insertshortdate\hspace{1em}\insertframenumber/\inserttotalframenumber}
+\setbeamertemplate{footline}[text line]{%
+\insertshortauthor\strut\hfill\insertshorttitle\hfill\hspace{1em}\insertframenumber/\inserttotalframenumber}
+
+\addtobeamertemplate{frametitle}{}{%
+
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{\beamer@headheight+18pt}
+\pgftext[at=\pgfpoint{.0\paperwidth}{-.2\paperheight},left,base]{\pgfuseimage{head-frame}}
+%\pgftext[at=\pgfpoint{0.0\paperwidth}{-0.0\paperheight},left,base]{\pgfuseimage{head-frame}}
+\pgftext[at=\pgfpoint{.0275\paperwidth}{-.0250\paperheight},left,base]{\color{UNEDGreen} \tiny \textbf{\insertsectionhead}}
+\pgftext[at=\pgfpoint{.9725\paperwidth}{-.0250\paperheight},right,base]{\color{UNEDGreen} \tiny {\insertsubsectionhead}}
+\pgftext[at=\pgfpoint{.05\paperwidth}{-.15\paperheight},left,base]{\insertframetitle}
+\pgftext[at=\pgfpoint{.05\paperwidth}{-.19\paperheight},left,base]
+{\footnotesize {\insertframesubtitle}}
+\end{pgfpicture}
+
+% \begin{pgfpicture}
+% \pgf@relevantforpicturesizefalse
+% \pgftransformxshift{-\Gm@lmargin}
+% \pgftransformyshift{\beamer@headheight+18pt}
+% %\pgftext[at=\pgfpoint{\paperwidth}{-\beamer@headheight},right,base]{\pgfuseimage{small-corner}}
+% \pgfpathmoveto{\pgfpoint{.15\paperwidth}{0pt}}
+% \pgfpathlineto{\pgfpoint{.15\paperwidth}{-\beamer@headheight}}
+% \pgfsetlinewidth{3.5pt}
+% \pgfsetinnerlinewidth{1pt}
+% \pgfsetinnerstrokecolor{UNEDGreen}
+% \pgfsetcolor{white}
+% \pgfusepath{stroke}
+% \pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.23\paperheight}}
+% \pgfpathlineto{\pgfpoint{.15\paperwidth}{-.97\paperheight}}
+% \pgfsetlinewidth{1pt}
+% \pgfsetinnerlinewidth{0pt}
+% \pgfsetcolor{UNEDGreen}
+% \pgfusepath{stroke}
+%\pgftext[at=\pgfpoint{.075\paperwidth}{-.97\paperheight},center,base]{\pgfuseimage{small-logo}}
+% \end{pgfpicture}%
+% \vskip-25pt%
+}
+
+\addtobeamertemplate{title page}{%
+\usebeamertemplate{title background}%
+\vskip .2\paperheight%
+}{}
+
+\newcommand\DoUnedBackground{%
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathrectanglecorners{\pgfpoint{0.025\paperwidth}{-0.025\paperheight}}{\pgfpoint{0.975\paperwidth}{-0.975\paperheight}}
+\pgfsetfillcolor{UNEDGreen}
+\pgfusepath{fill}
+\pgftext[at=\pgfpoint{\paperwidth}{-\paperheight},right,base]{\pgfuseimage{large-corner}}
+}
+
+\setbeamertemplate{title background}{%
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+\DoUnedBackground
+
+% White bar across top
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathrectanglecorners{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{-.34\paperheight}}
+\pgfsetfillcolor{white}
+\pgfusepath{fill}
+
+% Logo
+\pgftext[at=\pgfpoint{.0275\paperwidth}{-.0475\paperheight},left,base]{\pgfuseimage{line-head}}
+\pgftext[at=\pgfpoint{.025\paperwidth}{-.2975\paperheight},left,base]{\pgfuseimage{type-logo}}
+
+% Purple short bar on left
+% \pgfpathrectanglecorners{\pgfpoint{0pt}{-.19\paperheight}}{\pgfpoint{.15\paperwidth}{-.24\paperheight}}
+% \pgfsetfillcolor{USMPurple}
+% \pgfusepath{fill}
+
+% Followed by orange bar on right
+% \pgfpathrectanglecorners{\pgfpoint{.15\paperwidth}{-.19\paperheight}}{\pgfpoint{\paperwidth}{-.24\paperheight}}
+% \pgfsetfillcolor{UNEDGreen}
+% \pgfusepath{fill}
+
+% A stroke down the middle
+% \pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.19\paperheight}}
+% \pgfpathlineto{\pgfpoint{.15\paperwidth}{-.24\paperheight}}
+% \pgfsetlinewidth{3.5pt}
+% \pgfsetinnerlinewidth{1pt}
+% \pgfsetinnerstrokecolor{UNEDGreen}
+% \pgfsetrectcap
+% \pgfsetcolor{white}
+% \pgfusepath{stroke}
+
+% \pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.28\paperheight}}
+% \pgfpathlineto{\pgfpoint{.15\paperwidth}{-.45\paperheight}}
+% \pgfsetlinewidth{1pt}
+% \pgfsetinnerlinewidth{0pt}
+% \pgfsetcolor{UNEDGreen}
+% \pgfusepath{stroke}
+% 
+% \pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.55\paperheight}}
+% \pgfpathlineto{\pgfpoint{.15\paperwidth}{-.6\paperheight}}
+% \pgfsetlinewidth{1pt}
+% \pgfsetcolor{white}
+% \pgfusepath{stroke}
+% 
+% \pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.9\paperheight}}
+% \pgfpathlineto{\pgfpoint{.15\paperwidth}{-.93\paperheight}}
+% \pgfsetlinewidth{1pt}
+% \pgfsetcolor{white}
+% \pgfusepath{stroke}
+
+%\pgftext[at=\pgfpoint{.10\paperwidth}{-.92\paperheight},left,base]{\insertauthor}
+\end{pgfpicture}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme{rectangles}
+\setbeamertemplate{navigation symbols}{}
+
+\setlength{\leftmargini}{.5em}
+\setlength{\leftmarginii}{1.0em}
+\setlength{\leftmarginiii}{1.5em}
+\setlength{\leftmarginiv}{2.0em}
+\setlength{\leftmarginv}{2.5em}
+\setlength{\leftmarginvi}{3.0em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colours
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme[named=LightGreen]{structure}
+\usecolortheme{rose}
+\setbeamercolor{section in toc}{fg=UNEDGreen}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{title page}{fg=white}
+\setbeamercolor{logo}{bg=UNEDGreen}
+\setbeamercolor{frametitle}{fg=white,bg=white}
+\setbeamercolor{section in sidebar}{fg=UNEDGreen}
+\setbeamerfont{section in sidebar}{series=\bfseries}
+\setbeamercolor{block title}{bg=USMPurple!28!white,fg=USMPurple}
+\setbeamercolor{block body}{bg=UNEDGreen!15!white}
+
+\newcommand\ThankYouFrame{
+\setbeamertemplate{footline}[text line]{}
+\begin{frame}[plain,t]
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+\DoUnedBackground
+\pgftext[at=\pgfpoint{.5\paperwidth}{-.5\paperheight},center,center]{\pgfuseimage{logos}}
+\color{white}\pgftext[at=\pgfpoint{.5\paperwidth}{-.3\paperheight},center,center]{\huge{Thank You}}
+\color{white}\pgftext[at=\pgfpoint{.1\paperwidth}{-.85\paperheight}, left]{\inserttitle}
+\color{white}\pgftext[at=\pgfpoint{.1\paperwidth}{-.9\paperheight}, left]{\insertauthor}
+\end{pgfpicture}
+\end{frame}
+}

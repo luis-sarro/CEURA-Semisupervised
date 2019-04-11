@@ -1,0 +1,1306 @@
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[handout]{beamer}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{tocdepth}{1}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stackrel}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage[spanish]{babel}
+\uselanguage{spanish}
+\languagepath{spanish}
+\deftranslation[to=spanish]{Theorem}{Teorema}
+\deftranslation[to=spanish]{theorem}{teorema}
+\deftranslation[to=spanish]{Definition}{Definición}
+\deftranslation[to=spanish]{definition}{definición}
+\deftranslation[to=spanish]{Definitions}{Definiciones}
+\deftranslation[to=spanish]{definitions}{definiciones}
+\deftranslation[to=spanish]{Example}{Ejemplo}
+\deftranslation[to=spanish]{example}{ejemplo}
+\deftranslation[to=spanish]{Examples}{Ejemplos}
+\deftranslation[to=spanish]{examples}{ejemplos}
+\deftranslation[to=spanish]{Fact}{Hecho}
+\deftranslation[to=spanish]{fact}{hecho}
+\deftranslation[to=spanish]{Corollary}{Corolario}
+\deftranslation[to=spanish]{corollary}{corolario}
+\deftranslation[to=spanish]{Lemma}{Lema}
+\deftranslation[to=spanish]{lemma}{lema}
+\usetheme{MasterCeura}	% tree outline on top, plainish white
+\setbeamercovered{transparent}
+\usepackage{multimedia}
+
+\makeatother
+
+\begin{document}
+\title[SSL]{Aprendizaje semi-supervisado (SSL)}
+\subtitle{Teoría y casos prácticos de SSL}
+\author[J. M. Cuadra]{José Manuel Cuadra Troncoso}
+\date{}
+%\date{\today}
+%\institute{\url{jmcuadra@dia.uned.es}\\\url{http://www.ia.uned.es/personal/jmcuadra/}}
+\begin{frame}[plain,t]
+\titlepage
+\end{frame}
+
+\AtBeginSection[{\tableofcontents[currentsection]}]{
+
+    \frametitle{Índice}   
+
+    \tableofcontents[currentsection,hideothersubsections] 
+
+}
+\AtBeginSubsection[{\tableofcontents[currentsection]}]{
+
+  \frame<beamer>{ 
+
+    \frametitle{Índice}   
+
+    \tableofcontents[currentsection,currentsubsection,sectionstyle=show/shaded, subsectionstyle=show/shaded/hide] 
+
+  }
+
+}
+\begin{frame}{Índice}
+
+\tableofcontents{}
+
+\setcounter{tocdepth}{2}
+\end{frame}
+
+\section{Introducción a SSL}
+
+\subsection{Entre el aprendizaje no supervisado y el supervisado}
+\begin{frame}{Aprendizaje no supervisado}
+\begin{itemize}
+\item <1->El objetivo del aprendizaje no supervisado es encontrar una estructura
+interesante en un conjunto de ejemplos $X=\{\mathbf{x}_{1,}\,\mathbf{x}_{2,}\,....,\,\mathbf{x}_{n}\}$
+extraídas de una población $\mathcal{X}$.
+\begin{itemize}
+\item <2->Más precisamente encontrar una f.d.p que pueda haber generado
+$X$.
+\item <3->Este objetivo se extiende a estimación de cuantiles, clustering,
+detección de outliers y reducción de dimensionalidad.
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Aprendizaje supervisado}
+\begin{itemize}
+\item <1->El objetivo del aprendizaje supervisado es aprender un mapeo
+$f$ de $X$ en $Y=\{y_{1},\,y_{2},\,...,\,y_{n}\}$, donde $y_{i}$
+son las etiquetas asociadas a los ejemplos $\mathbf{x}_{i}$ extraídas
+de una población $\mathcal{Y}$.
+\begin{itemize}
+\item <2->Los pares $(\mathbf{x}_{i},\,y_{i})$ se supone que se seleccionan
+de manera i.i.d. en la población $\mathcal{X}\times\mathcal{Y}$.
+\item <3->Este objetivo se extiende a regresión, detección de outliers
+y de novedad.
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+
+\subsection{Datos etiquetados}
+\begin{frame}{Pros y contras de los datos etiquetados}
+\begin{exampleblock}{Pros}
+\begin{itemize}
+\item Con relativamente pocos datos se puede entrenar.
+\end{itemize}
+\end{exampleblock}
+%
+\begin{onlyenv}<2-3>
+\begin{alertblock}{Contras}
+\begin{itemize}
+\item Las etiquetas suelen necesitar expertos anotadores, llevan tiempo
+y dinero.
+\item Las etiquetas pueden necesitar dispositivos especializados.
+\end{itemize}
+\end{alertblock}
+\end{onlyenv}
+
+\begin{onlyenv}<3>
+
+Los datos no etiquetados suelen presentar características opuestas.
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{Ejemplo de obtención de etiquetas}
+
+\framesubtitle{Anotación de imágenes médicas}
+\begin{center}
+\includegraphics[scale=0.7]{figs/slices}
+\par\end{center}
+
+\end{frame}
+%
+\begin{frame}{Uso de juegos para etiquetado}
+\begin{itemize}
+\item Juegos de computación basados en humanos o juegos con un propósito
+(GWAP).
+\item Para abordar problemas que las computadoras aún no pueden:
+\begin{itemize}
+\item Etiquetado de imágenes.
+\item Anotación de obras de arte, literatura...
+\item Genética.
+\item Web semántica ...
+\end{itemize}
+\item \url{https://en.wikipedia.org/wiki/Human-based_computation_game}
+\end{itemize}
+\end{frame}
+%
+
+\subsection{Aprendizaje semi-supervisado y transductivo}
+\begin{frame}{Aprendizaje semi-supervisado}
+\begin{itemize}
+\item <1->Clasificación semi-supervisada:
+\begin{itemize}
+\item <2->Usar $l$ datos etiquetados $\left\{ (\mathbf{x}_{i},\,y_{i})\right\} _{i=1}^{l}$
+y $u$ no etiquetados $\left\{ \mathbf{x}_{j}\right\} _{j=l+1}^{l+u}$
+. Normalmente $u\gg l$.
+\item <2->Objetivo: obtener un mejor clasificador que con datos etiquetados
+solo. Extensión de SL.
+\item <2->Hay métodos generativos (probabilísticos) y discriminativos (no
+probabilísticos).
+\end{itemize}
+\item <3->Clustering con restricciones:
+\begin{itemize}
+\item <3->Usar $n$ datos no etiquetados $\left\{ \mathbf{x}_{j}\right\} _{j=l}^{n}$
+y restricciones p. ej. dos puntos están en el mismo cluster (must-links)
+o no (cannot-links).
+\item <3->Objetivo: obtener un mejor agrupamiento que con datos no etiquetados
+solo. Extensión de USL.
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{SSL vs aprendizaje transductivo}
+\begin{block}{SSL inductivo}
+
+Dados $\left\{ (\mathbf{x}_{i},\,y_{i})\right\} _{i=1}^{l}$ y $\left\{ \mathbf{x}_{j}\right\} _{j=l+1}^{l+u}$
+aprender $f\,:\,\mathcal{X}\,\longrightarrow\,\mathcal{Y}$ , se espera
+que $f$ realice buenas \textcolor{red}{predicciones sobre datos futuros}.
+\end{block}
+
+\begin{block}{Aprendizaje transductivo}
+
+Dados $\left\{ (\mathbf{x}_{i},\,y_{i})\right\} _{i=1}^{l}$ y $\left\{ \mathbf{x}_{j}\right\} _{j=l+1}^{l+u}$
+aprender $f\,:\,X^{l+u}\,\longrightarrow\,Y^{l+u}$ , se espera que
+$f$ realice buenas \textcolor{red}{predicciones solo en la muestra
+de entrenamiento}.
+\end{block}
+\end{frame}
+%
+
+\subsection{¿Cuándo puede funcionar el SSL?}
+\begin{frame}{¿Cuándo puede funcionar el SSL?}
+\begin{block}{¿Tiene sentido el SSL?}
+
+Precisando: en comparación con un algoritmo supervisado ¿se puede
+esperar mayor precisión empleando datos sin etiquetar?
+\end{block}
+\begin{itemize}
+\item <2->Sí, pero la distribución de ejemplo debe ser relevante para el
+problema de clasificación planteado.
+\begin{itemize}
+\item <3->El conocimiento sobre $p(\mathbf{x})$ que aportan los datos
+no etiquetados debe tener información útil sobre $p(y|\mathbf{x})$.
+\end{itemize}
+\item <4->Para esto deben cumplirse ciertas hipótesis: suavidad/continuidad,
+agrupamiento y de variedad(manifold).
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Hipótesis de suavidad/continuidad semi-supervisada}
+\begin{columns}
+
+\column{0.5\textwidth}
+\begin{itemize}
+\item <1->Si dos puntos $\mathbf{x}_{1},\,\mathbf{x}_{2}$ en una región
+de alta densidad están cerca, sus etiquetas $y_{1},\,y_{2}$ deberían
+ser iguales.
+\item <2->La frontera de decisión en región de baja densidad.
+\item <3->Generalizar a un posible conjunto infinito de casos a partir
+de un conjunto finito de entrenamiento.
+\end{itemize}
+
+\column{0.5\textwidth}
+\begin{center}
+\includegraphics<1>[scale=0.5]{figs/smooth-asumpt1.pdf}\includegraphics<2->[scale=0.5]{figs/smooth-asumpt1-2.pdf}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{Hipótesis de agrupamiento}
+\begin{itemize}
+\item <1->Si dos puntos $\mathbf{x}_{1},\,\mathbf{x}_{2}$ pertenecen al
+mismo cluster, sus etiquetas $y_{1},\,y_{2}$ deberían ser iguales.
+Aunque datos con la misma etiqueta pueden pertenecer a distintos clusters.
+Caso particular de la hipótesis de suavidad.
+\item <2->Los datos no etiquetados pueden ayudar a precisar las fronteras
+de los clusters.
+\end{itemize}
+\begin{center}
+\includegraphics<2->[scale=0.35]{figs/cluster-asumpt1-5.pdf}\llap{\includegraphics<3->[scale=0.35]{figs/cluster-asumpt-10.pdf}}\llap{\includegraphics<4->[scale=0.35]{figs/cluster-asumpt-15.pdf}}\llap{\includegraphics<5->[scale=0.35]{figs/cluster-asumpt-20.pdf}}
+\par\end{center}
+
+\end{frame}
+%
+\begin{frame}{Hipótesis de variedad (manifold)}
+\begin{itemize}
+\item <1->Una variedad es un conjunto localmente homeomórfico a un espacio
+euclídeo.
+\begin{itemize}
+\item <2->1D: recta, círculo, pero no un 8. En 2D: plano, esfera, toro.
+\end{itemize}
+\item <3->Los datos están en una variedad de una dimensión mucho más pequeña
+que la del espacio de entrada (evitar la maldición de la dimensionalidad).
+\begin{itemize}
+\item <4->La voz humana se controla con 4 cuerdas vocales, no es necesario
+modelar el espacio de todas las señales acústicas.
+\item <4->La expresión facial se controla con unos pocos músculos, no es
+necesario modelar el espacio de todas las imágenes.
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Principio de Vapnik}
+\begin{definition}[Principio de Vapnik]
+Cuando se trata de resolver un problema no debería resolverse, como
+paso intermedio, un problema más difícil.
+\end{definition}
+
+\end{frame}
+%
+
+\section{Herramientas para SSL}
+
+\subsection{Introducción}
+\begin{frame}{Introducción}
+\begin{alertblock}{Aviso}
+El software para SSL está muy disperso en distintas herramientas
+normalmente escritas en MatLab, C o C++.\\
+Consultar la web:\textcolor{blue}{{} \htmladdnormallink {Semi-Supervised Learning Software} {http://pages.cs.wisc.edu/~jerryzhu/ssl/software.html}}
+\end{alertblock}
+\begin{itemize}
+\item <2->Comentaremos el software que emplearemos en las actividades asociadas
+a los métodos que describiremos.
+\end{itemize}
+\end{frame}
+
+\subsection{Python}
+\begin{frame}{Scikit-learn}
+\begin{itemize}
+\item <1->En scikit-learn dispone de métodos de \textcolor{blue}{\htmladdnormallink {propagación de etiquetas} {http://scikit-learn.org/stable/modules/label_propagation.html}.}
+\item <2->Hay también módulos externos para scikit-learn.
+\begin{itemize}
+\item \textcolor{blue}{\htmladdnormallink {Semisup-learn} {https://github.com/oroszgy/semisup-learn}}
+self-training y S3VM. Para self-training el modelo supervisado tiene
+que tener el método predict\_proba.
+\item \textcolor{blue}{\htmladdnormallink {Sklearn-cotraining} {https://github.com/jjrob13/sklearn_cotraining}}. 
+\item \textcolor{blue}{\htmladdnormallink {pomegranate} {http://pomegranate.readthedocs.io/en/latest/index.html}}
+modelos generativos.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{R}
+\begin{frame}{R}
+\begin{itemize}
+\item <1->\textcolor{blue}{\htmladdnormallink {RSSL} {https://cran.r-project.org/web/packages/RSSL/index.html}}
+self-training, S3VM, métodos basados en grafos, ...
+\item <2->\textcolor{blue}{\htmladdnormallink {SSL} {https://cran.r-project.org/package=SSL}}
+cotraining, propagación de etiquetas, self-training (xgboost), métodos
+basados en grafos, ...
+\end{itemize}
+\end{frame}
+
+\subsection{Java}
+\begin{frame}{Java}
+\begin{itemize}
+\item <1->El módulo externo para Weka \textcolor{blue}{\htmladdnormallink {collective-classification} {https://code.google.com/archive/p/collective-classification/}}
+métodos basados en grafos, ...
+\item <2-> \textcolor{blue}{\htmladdnormallink {Keel} {http://www.keel.es/}}
+self-training y cotraining. Dispone de interfaz gráfica.
+\end{itemize}
+\end{frame}
+
+\section{Algoritmos para SSL}
+
+\subsection{Self-training (-learning)}
+\begin{frame}{Algoritmo básico}
+\begin{enumerate}
+\item <1->Entrenar un clasificador supervisado $f$ con el conjunto de
+datos etiquetados $L$.
+\item <2->Usar el clasificador para clasificar el conjunto de datos no
+etiquetados $U$.
+\item <3->Pasar datos de $U$ a $L$.
+\item <4->Repetir los pasos 1, 2 y 3 hasta que $U$ quede vacío.
+\end{enumerate}
+\end{frame}
+%
+\begin{frame}{Características}
+\begin{itemize}
+\item <1->Es el método más simple de SSL y es usado a menudo.
+\item <2->Es un método wrapper: envuelve un método SL.
+\item <3->La elección del clasificador $f$ está abierta.
+\item <4->Los errores cometidos por $f$ tienden a reforzarse.
+\begin{itemize}
+\item Como solución se pueden desetiquetar muestras con fiabilidad por debajo
+de un umbral.
+\end{itemize}
+\item <5->La convergencia a una solución depende del caso.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Variaciones al método básico}
+\begin{itemize}
+\item <1->Añadir a $L$ solo los datos más fiables en cada iteración.
+\item <2->Añadir a $L$ todos los datos, habría una sola iteración.
+\item <3->Añadir a $L$ todos los datos ponderando según su fiabilidad,
+habría una sola iteración.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Ejemplo exitoso con 1-NN}
+\begin{columns}
+%
+
+\column{0.5\textwidth}
+\begin{itemize}
+\item <1->Tenemos $L$ y $U$.
+\begin{enumerate}
+\item <2->Seleccionamos elemento de $U$ que esté a la mínima distancia
+de cualquier elemento de $L$.
+\item <3->Le damos la etiqueta del elemento de $L$ más cercano a él y
+lo pasamos a $L$. Los empates se deshacen aleatoriamente.
+\end{enumerate}
+\item <4->Repetimos 1 y 2 hasta vaciar $U$.
+\end{itemize}
+
+\column{0.5\textwidth}
+\begin{center}
+\includegraphics<1->[scale=0.5]{figs/self-training-ok-0.pdf}\llap{\includegraphics<1>[scale=0.5]{figs/self-training-ok-1.pdf}}\llap{\includegraphics<2-3>[scale=0.5]{figs/self-training-ok-2.pdf}}\llap{\includegraphics<2>[scale=0.5]{figs/self-training-ok-3.pdf}}\llap{\includegraphics<3>[scale=0.5]{figs/self-training-ok-4.pdf}}\llap{\includegraphics<4>[scale=0.5]{figs/self-training-ok-5.pdf}}\llap{\includegraphics<5>[scale=0.5]{figs/self-training-ok-10.pdf}}\llap{\includegraphics<6->[scale=0.5]{figs/self-training-ok-15.pdf}}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{Ejemplo fallido con 1-NN}
+\begin{columns}
+%
+
+\column{0.5\textwidth}
+\begin{itemize}
+\item <1->Tenemos $L$ y $U$, pero ahora hay un outlier.
+\item <2->Procedemos como en el ejemplo anterior.
+\item <3->Un outlier situado en el sitio oportuno puede dar al traste con
+la clasificación.
+\item <4->El outlier propaga su etiqueta.
+\item <5->La clasificación no es correcta.
+\end{itemize}
+
+\column{0.5\textwidth}
+\begin{center}
+\includegraphics<1->[scale=0.5]{figs/self-training-not-ok-0.pdf}\llap{\includegraphics<1>[scale=0.5]{figs/self-training-not-ok-1.pdf}}\llap{\includegraphics<2>[scale=0.5]{figs/self-training-not-ok-5.pdf}}\llap{\includegraphics<3-4>[scale=0.5]{figs/self-training-not-ok-10.pdf}}\llap{\includegraphics<4>[scale=0.5]{figs/self-training-not-ok-12.pdf}}\llap{\includegraphics<5->[scale=0.5]{figs/self-training-not-ok-15.pdf}}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{Self-training con semisup-learn (Python)}
+\begin{itemize}
+\item <1->Para el ejemplo con semisup-learn cargaremos el notebook self-training-iris.ipynb.
+\item <2->Clasificar flores iris usando aprendizaje supervisado en los
+datos etiquetados y self-training con todos los datos.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Self-training con SSL (R)}
+\begin{itemize}
+\item <1->Para el ejemplo con SSL cargaremos el notebook ssl-selftraining-example.ipynb.
+\item <2->Clasificar flores iris usando aprendizaje semi-supervisado.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Self-training con RSSL (R)}
+\begin{itemize}
+\item <1->Para el ejemplo con RSSL cargaremos el notebook example-self-learning-rssl.ipynb.
+\item <2->Ejemplo del uso de LearningCurveSSL para ver cómo puede fallar
+un self-learning.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Actividades self-training}
+\begin{block}{Actividad}
+
+Clasificar mediante self-training los datos de titanic.csv en \textquotedbl Survived\textquotedbl{}
+o no usando como características \textquotedbl Pclass\textquotedbl ,
+\textquotedbl Sex\textquotedbl , \textquotedbl Age\textquotedbl .
+Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+etc. Dar la matriz de confusión. Usar los tres módulos comentados.\\
+Para cargar csv ver titanic\_start\_python.ipynb y titanic-start\_r.ipynb.
+
+\end{block}
+\end{frame}
+
+\subsection{Co-training y modelos multivista}
+\begin{frame}{Introducción}
+\begin{itemize}
+\item <1->Queremos clasificar web en categorías.
+\begin{itemize}
+\item Creamos dos vistas (conjuntos de características $X=[X_{1},\,X_{2}]$
+de cada web: contenido $X_{1}$ y link $X_{2}$.
+\item Etiquetamos las vistas de algunas webs según las categorías.
+\end{itemize}
+\item <2->Entrenamos un clasificador para cada vista y cada uno clasifica
+algunos datos no etiquetados
+\item <3->Cada clasificador enseña al otro con los datos que ha etiquetado.
+\item <4->Como el self-training pero con dos clasificadores que se enseñan
+mutuamente.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Hipótesis del co-training}
+\begin{block}{Hipótesis del co-training}
+\begin{itemize}
+\item <1->La división en vistas $X=[X_{1},\,X_{2}]$ existe.
+\item <2->Cada vista es capaz de entrenar un clasificador.
+\item <3->Las vistas son condicionalmente independientes dada una clase
+$C$ ($X_{1}\,\mathsf{y}\,X_{2}$ no tiene porqué ser independientes
+pero si nos dan $C$ sí (peso, vocabulario y edad).
+\end{itemize}
+\end{block}
+\begin{center}
+\includegraphics<3->[scale=0.5]{figs/dos-vistas_horz.pdf}
+\par\end{center}
+
+\end{frame}
+%
+\begin{frame}{Algoritmo básico del co-training}
+\begin{enumerate}
+\item <1->Entrenar dos clasificadores $f_{1}$ a partir de $\left(X_{1}^{l},\,Y_{1}^{l}\right)$,
+$f_{2}$ a partir de $\left(X_{2}^{l},\,Y_{2}^{l}\right)$.
+\item <2->Clasificar $X^{u}$ usando $f_{1}$ y $f_{2}$ de forma independiente.
+\item <3->Co-training a velocidad $k$.
+\begin{itemize}
+\item <3->Añadir los $k$ datos más fiablemente etiquetados por $f_{1}$
+a $\left(X_{2}^{l},\,Y_{2}^{l}\right)$.
+\item <3->Añadir los $k$ datos más fiablemente etiquetados por $f_{2}$
+a $\left(X_{1}^{l},\,Y_{1}^{l}\right)$.
+\end{itemize}
+\item <4->Eliminar estos $2k$ datos de $X^{u}$.
+\item <5->Repetir los pasos 2, 3 y 4 hasta acabar con $X^{u}$.
+\end{enumerate}
+\end{frame}
+%
+\begin{frame}{Pros y contras del co-training}
+\begin{exampleblock}{Pros}
+\begin{itemize}
+\item Es un método wrapper que se puede aplicar a mucho clasificadores supervisados.
+\item Es menos sensible a errores que el self-training.
+\end{itemize}
+\end{exampleblock}
+%
+\begin{onlyenv}<2>
+\begin{alertblock}{Contras}
+\begin{itemize}
+\item La división de vistas de forma natural puede no existir.
+\item Modelos usando ambas vistas pueden funcionar mejor.
+\end{itemize}
+\end{alertblock}
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{Variantes del co-training}
+\begin{itemize}
+\item <1->\textbf{Co-EM (expectation maximization)}: da etiquetas probabilísticas
+que pueden cambiar entre iteraciones.
+\item <2->\textbf{Co-regularization}: minimiza una función que depende
+de la complejidad (normas) de $f_{1}\,\mathsf{y}\,f_{2}$, su acuerdo
+en los datos no etiquetados y una función de pérdida evaluada en los
+datos etiquetados usando la media entre $f_{1}\,\mathsf{y}\,f_{2}$.
+\item <3->\textbf{Co-regression}: usa regresores en lugar de clasificadores,
+la fiabilidad de las nuevas etiquetas se estima por la disminución
+del MSE.
+\item <4->\textbf{Co-clustering}: funciona bajo la hipótesis de que el
+agrupamiento real subyacente asignará los puntos correspondientes
+en cada vista al mismo grupo.
+\end{itemize}
+
+\end{frame}
+%
+\begin{frame}{Modelos multivista}
+\begin{itemize}
+\item <1->Son una extensión del co-training en la que se usan más de dos
+clasificadores.
+\begin{itemize}
+\item <2->Se entrenan clasificadores de distintos tipos.
+\item <2->Se clasifican los datos no etiquetados con cada clasificador.
+\item <2->Se añade la etiqueta votada por la mayoría.
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Cotraining con sklearn-cotraining (Python)}
+\begin{itemize}
+\item <1->Para el ejemplo con sklearn-cotraining cargaremos el notebook
+sklearn-cotraining-examples.ipynb.
+\item <2->Coentrenaremos varios clasificadores para clasificar un conjunto
+con 25000 datos y 1000 características, comparando la clasificación
+supervisada con la semi-supervisada.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Cotraining con SSL (R)}
+
+\begin{itemize}
+\item <1->Para el ejemplo con SSL cargaremos el notebook ssl-cotraining-example.ipynb.
+\item <2->Clasificar flores iris usando aprendizaje semi-supervisado.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Actividades cotraining}
+\begin{block}{Actividad}
+
+Clasificar mediante cotraining los datos de titanic.csv en \textquotedbl Survived\textquotedbl{}
+o no usando como características \textquotedbl Pclass\textquotedbl ,
+\textquotedbl Sex\textquotedbl , \textquotedbl Age\textquotedbl .
+Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+etc. Dar la matriz de confusión. Usar los dos módulos comentados.
+\end{block}
+\end{frame}
+
+\subsection{Self-labeled}
+\begin{frame}{Introducción a self-labeled}
+\begin{enumerate}
+\item <1->Estos métodos engloban al self-training y al co-training/multivista.
+\item <2->Características para clasificar:
+\begin{enumerate}
+\item <2->Mecanismo de adición: 
+\begin{enumerate}
+\item Incremental:$k$ más fiables en cada iteración.
+\item Por lotes: Se decide si un dato cumple el criterio de adición pero
+hasta tomar todas las decisiones no se etiquetan realmente (todos)
+los datos, se puede cambiar de opinión.
+\item Corrección: se añaden todos lo que cumplen un criterio, los que se
+etiquetan en una iteración pueden perderla en otra.
+\end{enumerate}
+\item <3->Clasificador simple (p. ej. self-learning) vs. múltiple (p. ej.
+co.training).
+\item <4->Usar uno o varios algoritmos de aprendizaje.
+\item <5->Vista simple o multivista.
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+%
+\begin{frame}{Taxonomía de métodos self-labeled}
+\begin{center}
+\includegraphics{figs/self-labeled}
+\par\end{center}
+
+\end{frame}
+%
+\begin{frame}{Uso de KEEL}
+\begin{itemize}
+\item <1->Vamos a ver el uso sencillo de KEEL creando un experimento de
+clasificación como se explica en el manual sección 7.3 (pg. 172) y
+sección 2.3.1 (pg. 14).
+\end{itemize}
+\end{frame}
+
+\subsection{Modelos generativos}
+\begin{frame}{Definición de modelo generativo}
+\begin{definition}[Modelo generativo]
+$p(\mathbf{x},\,y)\,=\,p(y)p(\mathbf{x}|y)$ siendo $p(\mathbf{x}|y)$
+una distribución de probabilidad compuesta (mixture distribution MM)
+identificable.
+
+\medskip{}
+
+Una MM es una distribución de probabilidad en la que los parámetros,
+o parte de ellos, son variables aleatorias.
+
+Una familia de distribuciones $\{p_{\theta}\}$ es identificable si
+$\theta_{1}\neq\theta_{2}\Longrightarrow p_{\theta_{1}}\neq p_{\theta_{2}}$.
+\end{definition}
+
+\begin{itemize}
+\item <2->Con una cantidad suficiente de datos no etiquetados se pueden
+identificar los componentes de la composición.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Modelo generativo en SSL}
+\begin{itemize}
+\item <1->Asumimos que conocemos $p(\mathbf{x},\,y)$ con parámetros $\theta$.
+\item <2->La distribución conjunta y la marginal $p(X^{l},\,Y^{l},\,X^{u}|\theta)\,=\,\underset{Y^{u}}{\sum}p(X^{l},\,Y^{l},\,X^{u},\,Y^{u}|\theta)$.
+\item <3->Estimar $\theta$ usando MLE o MAP o por métodos bayesianos.
+\item <4->Con una cantidad suficiente de datos no etiquetados se pueden
+identificar los componentes de la suma.
+\end{itemize}
+Se puede ver como clustering con información adicional sobre la marginal.
+\end{frame}
+%
+\begin{frame}{Ejemplos de modelos generativos}
+\begin{itemize}
+\item <1->Mixtura de gaussianas (GMM):
+\begin{itemize}
+\item Clasificación de imágenes usando MLE.
+\end{itemize}
+\item <2->Mixtura de multinomiales (Naïve Bayes):
+\begin{itemize}
+\item Categorización de textos usando MLE.
+\end{itemize}
+\item <3->Modelos de Markov ocultos (HMM):
+\begin{itemize}
+\item Reconocimiento de voz usando el algoritmo de Baum y Welch.
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Clasificación con GMM usando MLE}
+
+\framesubtitle{La mixtura}
+\begin{itemize}
+\item <1->Parámetros del modelo: $\theta=\left\{ w_{1},\,w_{2},\,\mu_{1},\,\mu_{2},\,\text{\ensuremath{\Sigma}}_{1},\,\text{\ensuremath{\Sigma}}_{2}\right\} $
+proporciones de clases, medias y covarianzas.
+\item <1->La GMM: $p(\mathbf{x},\,y)\,=\,\stackrel[i=1]{2}{\sum}w_{i}\mathcal{N}(\mu_{i},\,\Sigma_{i})$.
+\item <2->Clasificación: $p(y|\mathbf{x},\theta)=\dfrac{p(\mathbf{x},y|\theta)}{\underset{y'}{\sum}p(\mathbf{x},y'|\theta)}$.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Clasificación con GMM usando MLE}
+
+\framesubtitle{Clasificación binaria}
+\begin{itemize}
+\item <1->Usando datos etiquetados
+\begin{itemize}
+\item $\log p(X_{l},Y_{l}|\theta)=\stackrel[i=1]{l}{\sum}\log p(y_{i}|\theta)p(\mathbf{x}_{i}|y_{i},\theta)$.
+\item La MLE es trivial: $w_{i}\rightarrow$frecuencias, $\mu_{i}\rightarrow$medias
+muestrales $\Sigma_{i}\rightarrow$covarianzas muestrales para cada
+clase.
+\end{itemize}
+\item <2->Con los datos etiquetados y \textcolor{red}{no etiquetados}:
+\begin{itemize}
+\item $\log p(X_{l},Y_{l},X_{u}|\theta)=\stackrel[i=1]{l}{\sum}\log p(y_{i}|\theta)p(\mathbf{x}_{i}|y_{i},\theta)+$\\
+\hspace*{0.22\paperwidth}${\color{red}\stackrel[i=l+1]{l+u}{\sum}\log\left(\stackrel[y=1]{2}{\sum}p(y|\theta)p(\mathbf{x}_{i}|y,\theta)\right)}$.
+\end{itemize}
+\item <3->La MLE es difícil, hay variables ocultas ($Y^{u}$).
+\begin{itemize}
+\item Usaremos el algoritmo iterativo EM para obtener un máximo local.
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Clasificación con GMM usando MLE}
+
+\framesubtitle{Aplicación de EM}
+\begin{enumerate}
+\item <1->Obtenemos una estimación inicial $\theta^{0}=\left\{ w_{1}^{0},\,w_{2}^{0},\,\mu_{1}^{0},\,\mu_{2}^{0},\,\text{\ensuremath{\Sigma}}_{1}^{0},\,\text{\ensuremath{\Sigma}}_{2}^{0}\right\} $
+por MLE usando $(X^{l},\,Y^{l})$.
+\item <2->Paso E: etiqueta esperada $p(y|\mathbf{x},\,\theta^{k})=\dfrac{p(\mathbf{x},\,y|\theta^{k})}{\underset{y'}{\sum}p(\mathbf{x},\,y'|\theta^{k})}$
+$\forall\,\mathbf{x}\in X^{u}$
+\begin{itemize}
+\item <2->$x$ se etiqueta de clase $c=1:2$ con proporción $p(y=c|\mathbf{x},\,\theta^{k})$.
+\end{itemize}
+\item <3->Paso M: MLE de $\theta$ con los ahora datos etiquetados de $X^{u}$.
+\begin{itemize}
+\item $w_{1:2}\rightarrow$suma de las proporciones de cada clase.
+\item $\mu_{1:2}\,,\,\Sigma_{1:2}\rightarrow$media y covarianza ponderadas
+de cada clase.
+\end{itemize}
+\item <4->Repetimos 2 y 3 hasta alcanzar un máximo local, $k=1,\,2,\,...$
+\end{enumerate}
+\begin{itemize}
+\item <5->Es una especie de self-training.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Pros y contras de los modelos generativos}
+\begin{exampleblock}{Pros}
+\begin{itemize}
+\item Es un marco probabilístico claro y bien estudiado.
+\item Puede ser muy efectivo si es modelo es cercano al correcto.
+\end{itemize}
+\end{exampleblock}
+%
+\begin{onlyenv}<2>
+\begin{alertblock}{Contras}
+\begin{itemize}
+\item A menudo es difícil verificar la corrección del modelo.
+\item La identificabilidad del modelo, no todas las distribuciones lo son
+(Gauss sí, Bernouilli y uniforme no).
+\item EM obtiene óptimo locales no necesariamente globales.
+\item Los datos no etiquetados pueden dañar si el modelo ($p(y)$ y $p(\mathbf{x}|y)$)
+no es correcto.
+\end{itemize}
+\end{alertblock}
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{Ejemplo modelo incorrecto}
+
+Clasificación de textos por género y tema, un tema puede estar en
+varios géneros.
+\begin{center}
+\includegraphics<2>[scale=0.85]{figs/tema_genero-1.pdf}\includegraphics<3>[scale=0.85]{figs/tema_genero-5.pdf}
+\par\end{center}
+\begin{onlyenv}<4-5>
+\begin{itemize}
+\item <4->Posibles soluciones heurísticas:
+\begin{itemize}
+\item <5->Construir cuidadosamente el modelo generativo: p. ej. varias
+gaussianas por clase en lugar de una.
+\item <5->Dar menor peso a los datos no etiquetados (${\color{red}\lambda<1}$)\\
+$\log p(X_{l},Y_{l},X_{u}|\theta)=\stackrel[i=1]{l}{\sum}\log p(y_{i}|\theta)p(\mathbf{x}_{i}|y_{i},\theta)+$\\
+\hspace*{0.22\paperwidth}${\color{red}{\color{black}{\color{red}\lambda}\stackrel[i=l+1]{l+u}{\sum}\log\left(\stackrel[y=1]{2}{\sum}p(y|\theta)p(\mathbf{x}_{i}|y,\theta)\right)}}$.
+\end{itemize}
+\end{itemize}
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{Variante: cluster-and-label}
+\begin{itemize}
+\item <1->Cluster-and-label es una variante discriminativa, en lugar de
+usar modelos probabilísticos usa algoritmos de clustering.
+\end{itemize}
+%
+\begin{columns}
+
+\column{0.60\textwidth}
+\begin{itemize}
+\item <2->Entradas $(x_{1},y_{1}),...,(x_{l},y_{l}),$ $x_{l+1},...,x_{l+u}$,
+un alg. de clustering $\mathcal{A}$ y un alg. de clasificación SL
+$\mathcal{L}$.
+\begin{enumerate}
+\item <3->Agrupar $x_{1},...,x_{l},x_{l+1},...,x_{l+u}$ usando $\mathcal{A}$.
+\item <4->Para cada cluster sea $S$ sus datos etiquetados.
+\item <5->Entrenar un clasificador SL para $S$, $f_{S}=\mathcal{L}(S)$.
+\item <6->Aplicar $f_{S}$ a no etiquetados de $S$, así obtenemos $y_{l+1},...,y_{l+u}$.
+\end{enumerate}
+\end{itemize}
+
+\column{.40\textwidth}
+
+\includegraphics<2->[scale=0.45]{figs/cluster_and_label-proc-5.pdf}\llap{\includegraphics<2>[scale=0.45]{figs/cluster_and_label-proc-10.pdf}}\llap{\includegraphics<3-4>[scale=0.45]{figs/cluster_and_label-proc-15.pdf}}\llap{\includegraphics<5->[scale=0.45]{figs/cluster_and_label-proc-20.pdf}}
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{C-and-L puede funcionar o no}
+
+$\mathcal{A}$ clustering jerárquico aglomerativo, $\mathcal{L}$
+voto de mayoría
+
+\medskip{}
+
+\includegraphics<2->[scale=1]{figs/cluster-and-label-fault-1.pdf}\llap{\includegraphics<3->[scale=1]{figs/cluster-and-label-fault-5.pdf}}
+\end{frame}
+%
+\begin{frame}{Pros y contras del cluster-and-label}
+\begin{exampleblock}{Pros}
+\begin{itemize}
+\item Funciona bastante bien cuando la hipótesis de los clusters se cumple
+y se elige el algoritmo de clustering apropiado.
+\end{itemize}
+\end{exampleblock}
+%
+\begin{onlyenv}<2>
+\begin{alertblock}{Contras}
+\begin{itemize}
+\item Si el algoritmo tiene muchos parámetros puede no ser aplicable en
+aplicaciones reales.\\
+\end{itemize}
+\end{alertblock}
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{Modelos generativos con pomegranate}
+\begin{itemize}
+\item <1->Para el ejemplo con pomegranate cargaremos el notebook pomegranate\_example.ipynb.
+\item <2->Para un ejemplo más complejo cargaremos el notebook Tutorial\_8\_pomegranate\_Semisupervised\_Learning.ipynb.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Actividad con pomegranate}
+\begin{block}{Actividad}
+
+Clasificar mediante modelos generativos los datos de titanic.csv en
+\textquotedbl Survived\textquotedbl{} o no usando como características
+\textquotedbl Pclass\textquotedbl , \textquotedbl Sex\textquotedbl ,
+\textquotedbl Age\textquotedbl . Estudiar los datos antes para ver
+si hay problemas: datos no disponibles, etc. Dar la matriz de confusión.
+
+\end{block}
+\end{frame}
+
+\subsection{Semi-supervised SVM (S3VM)}
+\begin{frame}{SVM con datos etiquetados y no etiquetados}
+\begin{columns}
+%
+
+\column{0.5\textwidth}
+\begin{itemize}
+\item <1->SVM con solo datos etiquetados.
+\item <2->Añadimos datos no etiquetados.
+\item <3->S3VM con todos los datos.
+\end{itemize}
+
+\column{0.5\textwidth}
+
+\includegraphics<1->[scale=0.45]{figs/s3vm-5-10.pdf}\llap{\includegraphics<1-2>[scale=0.45]{figs/s3vm-12.pdf}}\llap{\includegraphics<2->[scale=0.45]{figs/s3vm-15.pdf}}\llap{\includegraphics<3->[scale=0.45]{figs/s3vm-20.pdf}}
+
+\end{columns}
+
+\begin{onlyenv}<4>
+\begin{block}{Hipótesis de separación de baja densidad (de agrupamiento)}
+Los datos no etiquetados deben estar separados por un margen amplio.
+\end{block}
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{La idea de S3VM}
+\begin{itemize}
+\item <1->Enumerar todos los posibles $2^{u}$ etiquetados de $X^{u}$.
+\item <2->Entrenar un SVM supervisado para cada etiquetado y $X^{l}$.
+\item <3->Elegir el SMV con margen más amplio.
+\item <4->Semi-supervised SVMs (S3VMs) = Transductive SVMs (TSVMs) 
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{SVM supervisado}
+\begin{itemize}
+\item <1->$\underset{\mathbf{w},b,\xi_{i}}{\min}\dfrac{1}{2}\mathbf{w}^{\mathsf{t}}\mathbf{w}+C\sum\xi_{i}$,
+siendo $C$ regularización.
+\item <2->llamando $f(\mathbf{x})=\mathbf{w}^{\mathsf{t}}\mathbf{x}+b$,
+las restricciones quedan: $yf(\mathbf{x})\geq1-\xi_{i}$.
+\item <3->Las variables de holgura (slack) $\xi_{i}\geq0$, $\xi_{i}=\max\left(0,1-y_{i}f(\mathbf{x}_{i})\right)$
+hinge loss (función de pérdida)
+\begin{itemize}
+\item Esta función es convexa, garantiza óptimos globales.
+\end{itemize}
+\item <4->Clasificamos con $\mathtt{sign(}f(\mathbf{x}))$.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Función objetivo de S3VM}
+\begin{columns}
+%
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item <1->$\underset{\mathbf{w},b,\xi_{i}}{\min}\,\,\,\underset{{\color{red}y_{u}\in\{-1,+1\}^{n}}}{{\color{red}\min}}\dfrac{1}{2}\mathbf{w}^{\mathsf{t}}\mathbf{w}+C\sum\xi_{i}$
+\item <2->con las restricciones:
+\begin{itemize}
+\item $yf(\mathbf{x})\geq1-\xi_{i}\,\,\,i=1,\,...\,,l$ .
+\item \textcolor{red}{$yf(\mathbf{x})\geq1-\xi_{i}\,\,\,i=l+1,\,...\,,l+u$
+.}
+\end{itemize}
+\item <3->Las variables de holgura (slack) $\xi_{i}\geq0$, 
+\begin{itemize}
+\item <4->$\xi_{i}=\max\left(0,1-y_{i}f(\mathbf{x}_{i})\right)$ para $L$
+(hinge loss).
+\item <5->\textcolor{red}{$\xi_{i}=\max\left(0,1-\left|f(\mathbf{x}_{i})\right|\right)$
+para $U$ (hat loss)} .
+\end{itemize}
+\item <6->Clasificamos con $sign(f(\mathbf{x}))$.
+\end{itemize}
+
+\column{0.4\textwidth}
+\begin{center}
+\includegraphics<4->[scale=0.7]{figs/hinge-loss-1.pdf}\llap{\includegraphics<5->[scale=0.7]{figs/hinge-loss-5.pdf}}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{Función objetivo de S3VM escrita sin restricciones}
+\begin{block}{Función objetivo}
+$\underset{f}{\min}\,\dfrac{1}{2}\mathbf{w}^{\mathsf{t}}\mathbf{w}+C_{l}\stackrel[i=1]{l}{\sum}\max\left(0,1-y_{i}f(x_{i})\right)+C_{u}\stackrel[i=l+1]{l+u}{\sum}\max\left(0,1-\left|f(x_{i})\right|\right)$
+\end{block}
+\begin{onlyenv}<2>
+\begin{alertblock}{}
+\begin{itemize}
+\item La función de pérdida para no etiquetados no es convexa, luego no
+proporciona óptimos globales.
+\item Habrá que diseñar métodos de optimización especiales.
+\end{itemize}
+\end{alertblock}
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{Métodos de optimización para S3VM}
+\begin{itemize}
+\item Label-switch-retraining ($\mathsf{S3VM}^{light}$).
+\item Gradient descent ($\mathsf{\nabla S3VM}$).
+\item Continuation (cS3VM).
+\item Concave-convex procedure (CCCP).
+\end{itemize}
+\textit{Optimization Techniques for Semi-Supervised Support Vector
+Machines {[}Chapelle et al., 2008{]}}
+
+\textit{An overview on semi-supervised support vector machine {[}Ding
+et al.., 2015{]}}
+\end{frame}
+%
+\begin{frame}{Restricción de clases equilibradas}
+\begin{itemize}
+\item <1->La optimización directa de S3VM suele producir clasificaciones
+desequilibradas, más datos de los que debería en un clase. 
+\item <2->Solución: introducir una restricción en el problema a optimizar:
+\begin{itemize}
+\item Equilibrio heurístico $\dfrac{1}{u}\stackrel[i=l+1]{l+u}{\sum}y_{i}=\dfrac{1}{l}\stackrel[i=1]{l}{\sum}y_{i}$.
+\item Equilibrio de clase nivelada $\dfrac{1}{u}\stackrel[i=l+1]{l+u}{\sum}f(x_{i})=\dfrac{1}{l}\stackrel[i=1]{l}{\sum}y_{i}$,
+preferible porque $f$ es un número real y es más fácil de optimizar.
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{$\mathsf{S3VM}^{light}$}
+\begin{itemize}
+\item <1->Entrenar un SVM con los datos etiquetados.
+\item <2->Clasificar los datos no etiquetados.
+\item <3->Bucle externo: empezar con valores pequeños de $C_{u}$ e ir
+aumentando.
+\begin{itemize}
+\item <4->Obtener nuevo clasificador usando hinge loss para los dos tipos
+de datos en la función a optimizar.
+\item <5->Bucle interno:
+\begin{itemize}
+\item <5->Dos etiquetas son intercambiables si son distintas y al cambiar
+sus valores la función de pérdida disminuye.
+\item <6->Intercambiar etiquetas hasta que no queden etiquetas intercambiables.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{$\mathsf{\nabla S3VM}$}
+\begin{columns}
+%
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item <1->Similar a $\mathsf{S3VM}^{light}$ pero solo con el bucle externo.
+\item <2->Usa $\exp(-5x^{2})$ (es diferenciable) en lugar de hat loss
+para los datos no etiquetados en la función a optimizar.
+\item <3->Hace $b=\dfrac{1}{l}\stackrel[i=1]{l}{\sum}y_{i}$, equilibra
+las clases automáticamente. 
+\end{itemize}
+
+\column{0.4\textwidth}
+\begin{center}
+\includegraphics<4->[scale=0.6]{figs/hat-exp-loss.pdf}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{cS3VM}
+\begin{columns}
+%
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item <1->Similar a $\nabla S3VM$, el bucle externo no varia $C_{u}$,
+sino suaviza la función objetivo por convolución con una gaussiana
+de varianza $\gamma$.
+\item <2->Se va aumentando $\gamma$.
+\item <3->La suavización llega hasta una función convexa, ¿$\gamma$?
+\item <4->A la que se le halla el óptimo global.
+\item <5->Recorriendo el camino inverso,
+\item <6->se llega al óptimo global de la función original.
+\end{itemize}
+
+\column{0.4\textwidth}
+\begin{center}
+\includegraphics<1->[scale=0.7]{figs/csvm-1.pdf}\llap{\includegraphics<2->[scale=0.7]{figs/csvm-5.pdf}}\llap{\includegraphics<3->[scale=0.7]{figs/csvm-10.pdf}}\llap{\includegraphics<4->[scale=0.7]{figs/csvm-15.pdf}}\llap{\includegraphics<5->[scale=0.7]{figs/csvm-20.pdf}}\llap{\includegraphics<6->[scale=0.7]{figs/csvm-25.pdf}}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{CCCP}
+\begin{columns}
+%
+
+\column{0.65\textwidth}
+\begin{itemize}
+\item <1->SVM con los datos etiquetados.
+\item <2->Se clasifican los datos no etiquetados.
+\item <3->$\max\left(0,1-\left|f(x_{i})\right|\right)\,=\,{\color{blue}\max\left(0,\left|f(x_{i})\right|-1\right)}+{\color{red}(1-\left|f(x_{i})\right|)}$
+\item <4->La parte cóncava de la función objetivo se aproxima por una tangente.
+\item <5->La función objetivo transformada es convexa, se halla su mínimo.
+\item <6->Se va iterando hasta llegar al mínimo global de la función objetivo
+original.
+\end{itemize}
+
+\column{0.35\textwidth}
+\begin{center}
+\includegraphics<3->[scale=0.35]{figs/cccp.pdf}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{Pros y contras de S3VM}
+\begin{exampleblock}{Pros}
+\begin{itemize}
+\item Aplicable donde SVM lo es.
+\item Dispone de un marco matemático claro.
+\end{itemize}
+\end{exampleblock}
+%
+\begin{onlyenv}<2>
+\begin{alertblock}{Contras}
+\begin{itemize}
+\item Difícil de optimizar.
+\item Puede quedar atrapado en óptimos locales.
+\item Resultados potencialmente peores que otros métodos.\\
+\end{itemize}
+\end{alertblock}
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{S3VM con semisup-learn}
+\begin{itemize}
+\item <1->Para un ejemplo con semisup-learn cargaremos el notebook compare\_linsvm\_methods.ipynb.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{S3VM con RSSL}
+\begin{itemize}
+\item <1->Para un ejemplo con RSSL cargaremos el notebook example-S4VM.Rmd.
+\item <2->Para otro ejemplo con RSSL cargaremos el notebook example-TSVM.Rmd.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Actividades de S3VM}
+\begin{block}{Actividad}
+
+Clasificar mediante S3VM los datos de titanic.csv en \textquotedbl Survived\textquotedbl{}
+o no usando como características \textquotedbl Pclass\textquotedbl ,
+\textquotedbl Sex\textquotedbl , \textquotedbl Age\textquotedbl .
+Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+etc. Dar la matriz de confusión. Usar varios de los módulos comentados.
+\end{block}
+\end{frame}
+
+\subsection{Modelos basados en grafos}
+\begin{frame}{Introducción}
+\begin{itemize}
+\item <1->Construir un grafo con vértices representando a los datos y aristas
+representando la similitud entre los datos.
+\item <2->Buscar técnicas para recortar el grafo:
+\begin{itemize}
+\item Datos etiquetados
+\item Heurísticas, p. ej. corte mínimo.
+\end{itemize}
+\begin{block}{Hipótesis}
+Vértices unido por una arista de peso alto pertenecerán a la misma
+clase.
+\end{block}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Construcción del grafo}
+\begin{block}{Construcción del grafo}
+\begin{itemize}
+\item <1->$\mathcal{G}=<\mathcal{V},\mathcal{A}>$donde $\mathcal{V}=\{\mathbf{x}_{i}\}_{i=1}^{l+u}$.
+\item <2->Conectar lo vértices usando una heurística:
+\begin{itemize}
+\item <2->$\epsilon$-NN $\epsilon>0$: $\mathbf{x}_{i}$ y $\mathbf{x}_{j}$
+están conectados si $dist(\mathbf{x}_{i},\mathbf{x}_{j})<\epsilon$.
+\item <2->$k$-NN: $\mathbf{x}_{i}$ y $\mathbf{x}_{j}$ están conectados
+si $\mathbf{x}_{j}$ es uno de los $k$-NN de $\mathbf{x}_{i}$.
+\end{itemize}
+\item <3->Ponderación del grafo:
+\begin{itemize}
+\item <3->Ingenua: si $\mathbf{x}_{i}$ y $\mathbf{x}_{j}$ están conectados,
+el peso $w_{ij}=1$.
+\item <3->Kernel gaussiano si $\mathbf{x}_{i}$ y $\mathbf{x}_{j}$ están
+conectados, el peso $w_{ij}=\exp\left(-\dfrac{dist^{2}(\mathbf{x}_{i},\mathbf{x}_{j})}{\sigma^{2}}\right)$.
+\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+%
+\begin{frame}{Ejemplo de grafo}
+
+Utilizamos la distancia entre píxeles.
+\begin{center}
+\includegraphics[scale=0.6]{figs/digitos}
+\par\end{center}
+
+\end{frame}
+%
+\begin{frame}{Algoritmos basados en grafos}
+\begin{itemize}
+\item Propagación de etiquetas.
+\item Partición del grafo
+\begin{itemize}
+\item Corte mínimo.
+\item Función armónica.
+\item Regularización de variedades.
+\item Consistencia local y global.
+\end{itemize}
+\end{itemize}
+\textit{Robust and Scalable Graph-Based Semisupervised Learning {[}
+Liu et al. 2012{]}}
+\end{frame}
+%
+\begin{frame}{Propagación de etiquetas}
+\begin{columns}
+%
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item <1->Entrenamiento SVM: no considerar la distribución de los datos.
+\item <2->Para incluir los no etiquetdos en la predicción de etiquetas:
+\begin{itemize}
+\item <3->Conectar los puntos cercanos entre sí.
+\item <4->Propagar las etiquetas por los nodos conectados...
+\item <5->hasta completar el grafo.
+\end{itemize}
+\end{itemize}
+
+\column{0.4\textwidth}
+\begin{center}
+\includegraphics<1->[scale=0.45]{figs/label_prop-1.pdf}\llap{\includegraphics<1-2>[scale=0.45]{figs/label_prop-2.pdf}}\llap{\includegraphics<3->[scale=0.45]{figs/label_prop-3.pdf}}\llap{\includegraphics<3>[scale=0.45]{figs/label_prop-5.pdf}}\llap{\includegraphics<4>[scale=0.45]{figs/label_prop-10.pdf}}\llap{\includegraphics<5->[scale=0.45]{figs/label_prop-15.pdf}}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{Partición del grafo}
+\begin{columns}
+%
+
+\column{0.6\textwidth}
+\begin{itemize}
+\item <1->La idea es que la clasificación es una partición del grafo.
+\item <2->Buscar una frontera de clasificación:
+\begin{itemize}
+\item <2->Consistente con los datos etiquetados
+\item <3->Particiones el grafo con cortes pequeños.
+\end{itemize}
+\item <4->Los distintos métodos varían en la forma de definir la función
+de corte.
+\end{itemize}
+
+\column{0.4\textwidth}
+\begin{center}
+\includegraphics<2->[scale=0.75]{figs/small-cut-1.pdf}\llap{\includegraphics<2>[scale=0.75]{figs/small-cut-5.pdf}}\llap{\includegraphics<3>[scale=0.75]{figs/small-cut-10.pdf}}
+\par\end{center}
+
+\end{columns}
+
+\end{frame}
+%
+\begin{frame}{Pros y contras de métodos basados en grafos}
+\begin{exampleblock}{Pros}
+\begin{itemize}
+\item Dispone de un marco matemático claro.
+\item El rendimiento es bueno si el grafo se ajusta a la tarea.
+\item Se puede extender a grafos dirigidos.
+\end{itemize}
+\end{exampleblock}
+%
+\begin{onlyenv}<2>
+\begin{alertblock}{Contras}
+\begin{itemize}
+\item El rendimiento es malo si el grafo lo es.
+\item Sensible a la estructura del grafo y a los pesos.
+\end{itemize}
+\end{alertblock}
+\end{onlyenv}
+
+\end{frame}
+%
+\begin{frame}{Clasificación mediante grafos con sklearn}
+\begin{itemize}
+\item <1->Para un ejemplo con LabelPropagation cargaremos el notebook plot\_label\_propagation\_structure.ipnyb.
+\item <2->Para un ejemplo con LabelSpreading cargaremos el notebook plot\_label\_propagation\_digits.ipynb.
+\end{itemize}
+\end{frame}
+%
+\begin{frame}{Actividad con sklearn}
+\begin{block}{Actividad}
+
+Clasificar mediante sklearn los datos de titanic.csv en \textquotedbl Survived\textquotedbl{}
+o no usando como características \textquotedbl Pclass\textquotedbl ,
+\textquotedbl Sex\textquotedbl , \textquotedbl Age\textquotedbl .
+Estudiar los datos antes para ver si hay problemas: datos no disponibles,
+etc. Dar la matriz de confusión. Usar varios de los módulos comentados.
+\end{block}
+\end{frame}
+%
+\begin{frame}{Clasificación mediante grafos con Weka}
+
+Explicar el uso de Weka en aprendizaje semi-supervisado.
+\end{frame}
+%
+\begin{frame}{Actividad listado métodos de SSl y RSSL}
+\begin{block}{Actividad}
+
+Leer los manuales SLL.pdf y RSSL.pdf y clasificar los métodos que
+aparecen en las categoría que se han explicado.
+
+\end{block}
+
+\end{frame}
+\AtBeginSection{}
+
+\section*{Bibliografía}
+\begin{frame}[allowframebreaks]{Bibliografía}
+\begin{itemize}
+\item Semi-Supervised Learning, Olivier Chapelle; Bernhard Schölkopf; Alexander
+Zien. MIT-Press
+\item \htmladdnormallink {Semi-Supervised Learning Literature Survey, Xiaojin Zhu} {http://pages.cs.wisc.edu/~jerryzhu/pub/SSL_EoML.pdf}
+\item \htmladdnormallink {Hands-on Machine Learning with Scikit-Learn and TensorFlow, Aurélien Géron} {http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/9781491962282}
+\item \htmladdnormallink {Python: Deeper Insights into Machine Learning, Sebastian Raschka; David Julian; John Hearty} {http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/python/9781787128576}
+\item \htmladdnormallink {Scikit-learn : Machine Learning Simplified, Raúl Garreta; Guillermo Moncecchi; Trent Hauck; Gavin Hackeling} {http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/machine-learning/9781788833479}
+\item \htmladdnormallink {Python: Real World Machine Learning, Prateek Joshi; John Hearty; Bastiaan Sjardin; Luca Massaron; Alberto Boschetti} {http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/python/9781787123212}
+\item \htmladdnormallink {Machine Learning: End-to-End guide for Java developers, Richard M. Reese; Jennifer L. Reese; Bo¨tjan Kalu¸a; Dr. Uday Kamath; Krishna Choppella} {http://proquest.safaribooksonline.com.ezproxy.uned.es/book/programming/machine-learning/9781788622219}
+\item \htmladdnormallink {Robust and Scalable Graph-Based Semisupervised Learning, Wei Liu; Jun Wang} {http://www.ee.columbia.edu/~wliu/PIEEE12_gssl.pdf}
+\item \htmladdnormallink {RSSL: Semi-supervised Learning in R, Jesse H. Krijthe} {https://arxiv.org/abs/1612.07993}
+\item \htmladdnormallink {Self-labeled techniques for semi-supervised learning: taxonomy, software and empirical study, Isaac Triguero; Salvador García; Francisco Herrera } {http://sci2s.ugr.es/keel/papers/semi-supervised/2013-KAIS-Triguero.pdf}
+\end{itemize}
+\end{frame}
+\ThankYouFrame
+\end{document}
